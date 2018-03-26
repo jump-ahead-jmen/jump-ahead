@@ -1,5 +1,5 @@
 'use strict'
-
+const userDropdown = require('./user-dropdown')
 const store = require('../store')
 // above is for the token as well
 
@@ -7,6 +7,7 @@ const signUpSuccess = function (data) {
   $('#message').text('Signed up Successfully!')
   $('#message').css('background-color', 'green')
   $('form').find('input:not([type="submit"])').val('')
+  userDropdown()
   console.log(data)
 }
 
@@ -17,6 +18,8 @@ const signUpFailure = function (error) {
   $('form').find('input:not([type="submit"])').val('')
 }
 const signInSuccess = function (data) {
+  $('.signed-in-buttons').show()
+  $('.signed-out-buttons').hide()
   $('#message').text('Signed in Successfully!')
   $('#message').css('background-color', 'green')
   $('form').find('input:not([type="submit"])').val('')
@@ -52,6 +55,8 @@ const signOutSuccess = function (data) {
   $('#message').text('Signed out Successfully!')
   $('#message').css('background-color', 'green')
   $('form').find('input:not([type="submit"])').val('')
+  $('.signed-in-buttons').hide()
+  $('.signed-out-buttons').show()
   store.user = null
 }
 

@@ -3,6 +3,8 @@
 const config = require('../config.js')
 const store = require('../store')
 
+let token
+
 const signUp = function (data) {
   console.log('api.signup being triggered')
   return $.ajax({
@@ -49,9 +51,25 @@ const signOut = function (data) {
   })
 }
 
+const userIndex = function () {
+  token = ''
+  if (store.user) {
+    token = store.user.token
+  }
+  return $.ajax({
+    url: config.apiUrl + '/users',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  userIndex
 }

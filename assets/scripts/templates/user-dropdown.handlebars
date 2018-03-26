@@ -1,0 +1,6 @@
+<select class="form-control" id="user-dropdown" name="users[user_id]" required>
+  <option value="" selected disabled hidden>Choose a company to view</option>
+  {{#each users as |user|}}
+  <option value="{{user.id}}">{{user.organization}}</option>
+  {{/each}}
+</select>
