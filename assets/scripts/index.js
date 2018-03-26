@@ -2,6 +2,12 @@
 
 // const config = require('./config')
 const userEvents = require('./users/events.js')
+const webpageEvents = require('./webpages/events.js')
+const blogPostEvents = require('./blogposts/events.js')
+
+$(() => {
+  userEvents.addHandlers()
+  webpageEvents.addHandlers()
   blogPostEvents.addHandlers()
 })
 
