@@ -31,7 +31,7 @@ const getWebpage = function (data) {
   //   id = data
   // }
   return $.ajax({
-    url: config.apiUrl + '/webpages/' + data.id,
+    url: config.apiUrl + '/webpages/' + data,
     method: 'GET',
     headers: {
       contentType: 'application/json',
@@ -47,7 +47,7 @@ const deleteWebpage = function (data) {
   //   id = data
   // }
   return $.ajax({
-    url: config.apiUrl + '/webpages/' + data.id,
+    url: config.apiUrl + '/webpages/' + data,
     method: 'DELETE',
     headers: {
       contentType: 'application/json',
