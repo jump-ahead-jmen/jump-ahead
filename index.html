@@ -13,97 +13,101 @@
     </head>
 
     <body class="container-fluid">
+      <div class="pageContent">
+        <header class="jump-ahead-slogan">
+          <h1>JUMP AHEAD</h1>
+          <section class="lede">Get a jump start on your company's website with Jump Ahead</section>
+        </header>
 
-      <h1>JUMP AHEAD</h1>
+        <h1>API Token Auth</h1>
 
-      <h1>API Token Auth</h1>
+        <p id="message"></p>
 
-      <p id="message"></p>
-
-      <form id="sign-up" class="border">
-        <fieldset>
-          <legend>Sign up!</legend>
-          <input type="text" name="credentials[organization]" placeholder="Organization">
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="password">
-          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-          <input type="submit" value="Sign up!">
-        </fieldset>
+        <form id="sign-up" class="border">
+          <fieldset>
+            <legend>Sign up!</legend>
+            <input type="text" name="credentials[organization]" placeholder="Organization">
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="password">
+            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+            <input type="submit" value="Sign up!">
+          </fieldset>
+        </form>
+          <form id="sign-in" class="border">
+          <fieldset>
+            <legend>Sign in!</legend>
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="password">
+            <input type="submit" value="Sign-in">
+          </fieldset>
+        </form>
+        <form id="change-password" class="border">
+          <fieldset>
+            <legend>change-password</legend>
+            <input type="password" name="passwords[old]" placeholder="Old Password">
+            <input type="password" name="passwords[new]" placeholder="New Password">
+            <input type="submit" value="Change Password!">
+          </fieldset>
       </form>
-        <form id="sign-in" class="border">
-        <fieldset>
-          <legend>Sign in!</legend>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="password">
-          <input type="submit" value="Sign-in">
-        </fieldset>
+      <form id="sign-out" class="border">
+        <legend>sign-out</legend>
+        <input type="submit" value="Sign out!">
       </form>
-      <form id="change-password" class="border">
-        <fieldset>
-          <legend>change-password</legend>
-          <input type="password" name="passwords[old]" placeholder="Old Password">
-          <input type="password" name="passwords[new]" placeholder="New Password">
-          <input type="submit" value="Change Password!">
-        </fieldset>
-    </form>
-    <form id="sign-out" class="border">
-      <legend>sign-out</legend>
-      <input type="submit" value="Sign out!">
-    </form>
-    <form id="create-webpage" class="border">
-      <legend>create-webpage</legend>
-      <input type="text" name="webpage[title]" placeholder="title">
-      <input type="text" name="webpage[body]" placeholder="body">
-      <input type="submit" value="Create a webpage">
-    </form>
-    <form id="get-webpages" class="border">
-      <legend>get-webpages</legend>
-      <input type="submit" value="Get all webpages!">
-    </form>
-    <form id="get-webpage" class="border">
-      <legend>get-webpage</legend>
-      <input type="text" name="webpage[id]" placeholder="id number">
-      <input type="submit" value="Find a webpage">
-    </form>
-    <form id="update-webpage" class="border">
-      <legend>update-webpage</legend>
-      <input type="text" name="webpage[id]" placeholder="id number">
-      <input type="text" name="webpage[title]" placeholder="title">
-      <input type="text" name="webpage[body]" placeholder="body">
-      <input type="submit" value="Update a webpage">
-    </form>
-    <form id="delete-webpage" class="border">
-      <legend>delete-webpage</legend>
-      <input type="text" name="webpage[id]" placeholder="id number">
-      <input type="submit" value="Delete webpage">
-    </form>
-    <form id="index-blogPost">
-      <legend>Get all blog posts</legend>
-      <input type="submit" value="Get BlogPosts">
-    </form>
-    <form id="show-blogPost">
-      <legend>Get one blog posts</legend>
-      <input type="text" name="blogPost[id]" placeholder="Blog Post ID">
-      <input type="submit" value="Get one BlogPost">
-    </form>
-    <form id="create-blogPost">
-      <legend>Create one blog posts</legend>
-      <input type="text" name="blogPost[title]" placeholder="Blog Post title">
-      <input type="text" name="blogPost[body]" placeholder="Blog Post body">
-      <input type="submit" value="Create one BlogPost">
-    </form>
-    <form id="update-blogPost">
-      <legend>Get one blog posts</legend>
-      <input type="text" name="blogPost[id]" placeholder="Blog Post ID">
-      <input type="text" name="blogPost[title]" placeholder="Blog Post title">
-      <input type="text" name="blogPost[body]" placeholder="Blog Post body">
-      <input type="submit" value="Update one BlogPost">
-    </form>
-    <form id="delete-blogPost">
-      <legend>Delete one blog posts</legend>
-      <input type="text" name="blogPost[id]" placeholder="Blog Post ID">
-      <input type="submit" value="Delete one BlogPost">
-    </form>
-    <p id="content"></p>
+      <form id="create-webpage" class="border">
+        <legend>create-webpage</legend>
+        <input type="text" name="webpage[title]" placeholder="title">
+        <input type="text" name="webpage[body]" placeholder="body">
+        <input type="submit" value="Create a webpage">
+      </form>
+      <form id="get-webpages" class="border">
+        <legend>get-webpages</legend>
+        <input type="submit" value="Get all webpages!">
+      </form>
+      <form id="get-webpage" class="border">
+        <legend>get-webpage</legend>
+        <input type="text" name="webpage[id]" placeholder="id number">
+        <input type="submit" value="Find a webpage">
+      </form>
+      <form id="update-webpage" class="border">
+        <legend>update-webpage</legend>
+        <input type="text" name="webpage[id]" placeholder="id number">
+        <input type="text" name="webpage[title]" placeholder="title">
+        <input type="text" name="webpage[body]" placeholder="body">
+        <input type="submit" value="Update a webpage">
+      </form>
+      <form id="delete-webpage" class="border">
+        <legend>delete-webpage</legend>
+        <input type="text" name="webpage[id]" placeholder="id number">
+        <input type="submit" value="Delete webpage">
+      </form>
+      <form id="index-blogPost">
+        <legend>Get all blog posts</legend>
+        <input type="submit" value="Get BlogPosts">
+      </form>
+      <form id="show-blogPost">
+        <legend>Get one blog posts</legend>
+        <input type="text" name="blogPost[id]" placeholder="Blog Post ID">
+        <input type="submit" value="Get one BlogPost">
+      </form>
+      <form id="create-blogPost">
+        <legend>Create one blog posts</legend>
+        <input type="text" name="blogPost[title]" placeholder="Blog Post title">
+        <input type="text" name="blogPost[body]" placeholder="Blog Post body">
+        <input type="submit" value="Create one BlogPost">
+      </form>
+      <form id="update-blogPost">
+        <legend>Get one blog posts</legend>
+        <input type="text" name="blogPost[id]" placeholder="Blog Post ID">
+        <input type="text" name="blogPost[title]" placeholder="Blog Post title">
+        <input type="text" name="blogPost[body]" placeholder="Blog Post body">
+        <input type="submit" value="Update one BlogPost">
+      </form>
+      <form id="delete-blogPost">
+        <legend>Delete one blog posts</legend>
+        <input type="text" name="blogPost[id]" placeholder="Blog Post ID">
+        <input type="submit" value="Delete one BlogPost">
+      </form>
+      <p id="content"></p>
+    </div>
     </body>
 </html>
