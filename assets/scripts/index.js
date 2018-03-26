@@ -2,11 +2,7 @@
 
 // const config = require('./config')
 const userEvents = require('./users/events.js')
-const webpageEvents = require('./webpages/events.js')
-
-$(() => {
-  userEvents.addHandlers()
-  webpageEvents.addHandlers()
+  blogPostEvents.addHandlers()
 })
 
 // use require with a reference to bundle the file and use it in this file

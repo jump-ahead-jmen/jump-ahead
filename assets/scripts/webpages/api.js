@@ -5,7 +5,7 @@ const store = require('../store')
 
 let token
 
-const webpageIndex = function () {
+const getWebpages = function () {
   token = ''
   if (store.user) {
     token = store.user.token
@@ -20,7 +20,7 @@ const webpageIndex = function () {
   })
 }
 
-const webpageShow = function (data) {
+const getWebpage = function (data) {
   token = ''
   if (store.user) {
     token = store.user.token
@@ -40,7 +40,7 @@ const webpageShow = function (data) {
   })
 }
 
-const webpageDelete = function (data) {
+const deleteWebpage = function (data) {
   // if (data.webpage) {
   //   id = data.webpage.id
   // } else {
@@ -55,7 +55,7 @@ const webpageDelete = function (data) {
     }
   })
 }
-const webpageCreate = function (data) {
+const createWebpage = function (data) {
   return $.ajax({
     url: config.apiUrl + '/webpages/',
     method: 'POST',
@@ -67,7 +67,7 @@ const webpageCreate = function (data) {
   })
 }
 
-const webpageUpdate = function (data) {
+const updateWebpage = function (data) {
   return $.ajax({
     url: config.apiUrl + '/webpages/' + data.webpage.id,
     method: 'PATCH',
@@ -80,9 +80,9 @@ const webpageUpdate = function (data) {
 }
 
 module.exports = {
-  webpageIndex,
-  webpageShow,
-  webpageDelete,
-  webpageCreate,
-  webpageUpdate
+  getWebpages,
+  getWebpage,
+  deleteWebpage,
+  createWebpage,
+  updateWebpage
 }

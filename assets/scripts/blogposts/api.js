@@ -21,6 +21,7 @@ const blogPostIndex = function () {
 }
 
 const blogPostShow = function (data) {
+  const id = data.blogPost.id
   token = ''
   if (store.user) {
     token = store.user.token
@@ -31,7 +32,7 @@ const blogPostShow = function (data) {
   //   id = data
   // }
   return $.ajax({
-    url: config.apiUrl + '/blogPosts/' + data.id,
+    url: config.apiUrl + '/blogPosts/' + id,
     method: 'GET',
     headers: {
       contentType: 'application/json',

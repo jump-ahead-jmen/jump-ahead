@@ -14,6 +14,8 @@ const onBlogPostCreate = function () {
 const onBlogPostShow = function () {
   event.preventDefault()
   const data = getFormFields(event.target)
+  console.log(data)
+  console.log(data.blogPost)
   api.blogPostShow(data)
     .then(ui.blogPostShowSuccess)
     .catch(ui.blogPostShowFailure)

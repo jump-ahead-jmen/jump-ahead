@@ -15,7 +15,8 @@ const blogPostCreateFailure = function (error) {
 const blogPostShowSuccess = function (data) {
   $('#message').text('Showed Blog Post successfully')
   $('#message').css('background-color', 'green')
-  console.log(data)
+  console.log(data.blogPost)
+  $('#content').html(data.blogPost.title + ' ' + data.blogPost.body)
 }
 
 const blogPostShowFailure = function (error) {
@@ -28,6 +29,7 @@ const blogPostIndexSuccess = function (data) {
   $('#message').text('Indexed Blog Posts successfully')
   $('#message').css('background-color', 'green')
   console.log(data)
+  $('#content').text(data)
 }
 
 const blogPostIndexFailure = function (error) {
