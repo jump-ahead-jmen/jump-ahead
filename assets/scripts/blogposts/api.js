@@ -42,13 +42,14 @@ const blogPostShow = function (data) {
 }
 
 const blogPostDelete = function (data) {
+  const id = data.blogPost.id
   // if (data.blogPost) {
   //   id = data.blogPost.id
   // } else {
   //   id = data
   // }
   return $.ajax({
-    url: config.apiUrl + '/blogPosts/' + data.id,
+    url: config.apiUrl + '/blogPosts/' + id,
     method: 'DELETE',
     headers: {
       contentType: 'application/json',
