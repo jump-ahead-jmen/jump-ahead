@@ -4,58 +4,63 @@
 // above is for the token as well
 
 const createWebpageSuccess = function (data) {
-  $('#message').text('Signed up Successfully!')
+  $('#message').text('Webpage created Successfully!')
   $('#message').css('background-color', 'green')
   console.log(data)
+  console.log('ui create wp works')
 }
 
 const createWebpageFailure = function (error) {
   console.log(error)
-  $('#message').text('Error on signing up!')
+  $('#message').text('Error on creating webpage!')
   $('#message').css('background-color', 'red')
 }
 const getWebpagesSuccess = function (data) {
-  $('#message').text('Signed in Successfully!')
+  $('#message').text('Retrieved pages Successfully!')
   $('#message').css('background-color', 'green')
   console.log(data)
+  console.log('this ui works')
 }
 
 const getWebpagesFailure = function (error) {
   console.log(error)
-  $('#message').text('Error on signing in!')
+  $('#message').text('Error on retrieving pages!')
   $('#message').css('background-color', 'red')
 }
 
 const getWebpageSuccess = function (data) {
-  $('#message').text('Change password Successfully!')
+  $('#message').text('brought back 1 page Successfully!')
   $('#message').css('background-color', 'green')
+  console.log('this ui works')
 }
 
 const getWebpageFailure = function (error) {
   console.log(error)
-  $('#message').text('Error on changing password!')
+  $('#message').text('Error on getting a webpage!')
   $('#message').css('background-color', 'red')
 }
 
 const updateWebpageSuccess = function (data) {
-  $('#message').text('Signed out Successfully!')
+  $('#message').text('Updated Successfully!')
   $('#message').css('background-color', 'green')
+  console.log('this ui works')
 }
 
 const updateWebpageFailure = function (error) {
   console.log(error)
-  $('#message').text('Error on signing out!')
+  $('#message').text('Error on updating!')
   $('#message').css('background-color', 'red')
 }
 
 const deleteWebpageSuccess = function (data) {
-  $('#message').text('Signed out Successfully!')
+  $('#message').text('Deleted Successfully!')
   $('#message').css('background-color', 'green')
+  console.log('this ui works')
 }
 
 const deleteWebpageFailure = function (error) {
   console.log(error)
-  $('#message').text('Error on signing out!')
+  $('#message').text('Error on deleting!')
   $('#message').css('background-color', 'red')
 }
 

@@ -22,7 +22,7 @@ const onGetWebpage = function (event) {
   const data = getFormFields(event.target)
   const webpage = data.webpage
   // console.log(event)
-  api.getTrip(webpage.id)
+  api.getWebpage(webpage.id)
     .then(ui.getWebpageSuccess)
     .catch(ui.getWebpageFailure)
 }
