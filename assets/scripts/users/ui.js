@@ -3,6 +3,8 @@ const userDropdown = require('./user-dropdown')
 const store = require('../store')
 const orgInfoTemplate = require('../templates/show-base-page.handlebars')
 const webpageLinksTemplate = require('../templates/page-links.handlebars')
+const blogEvents = require('../blogposts/events.js')
+// const blogPostEvents = require('../blogposts/events.js')
 // above is for the token as well
 
 const signUpSuccess = function (data) {
@@ -74,14 +76,16 @@ const viewOrgInfo = function (data) {
   const orgInfoData = orgInfoTemplate({ users: data })
   $('#content').html(orgInfoData)
   console.log('viewOrgInfo data is', data)
+  console.log('data.user.id is', data.user.id)
+  $('.showblogbutton').on('click', () => blogEvents.onShowBlogPosts(data))
+  $('.showblogbutton').on('click', () => console.log('button clicked'))
   return data
 }
 
 const showWebpageLinks = function (data) {
   const webpageLinks = webpageLinksTemplate({ webpages: data.webpages })
   $('#page-links').html(webpageLinks)
-  console.log('showWebPageLinks data is', data)
-  console.log('data.webpages[0].title is ', data.webpages[0].title)
+  // console.log('showWebPageLinks data is', data)
 }
 
 module.exports = {

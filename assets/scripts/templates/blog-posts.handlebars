@@ -1,3 +1,10 @@
-{{#each blogposts as |blogpost|}}
-  <a href="#" data-id="{{webpage.id}}">{{webpage.title}}</a>
+HELLO
+{{#each blogPosts as |blogPost|}}
+  <div data-id="{{blogPost.id}}">
+    <h1>{{blogPost._owner.organization}}</h1>
+    <h1>{{blogPost.title}}</h1>
+      <br />
+      <p>{{blogPost.body}}</p>
+      <p>{{blogPost.createdAt}}</p>
+  </div>
 {{/each}}

@@ -41,6 +41,26 @@ const blogPostShow = function (data) {
   })
 }
 
+const getOwnedBlogposts = function (data) {
+  token = ''
+  if (store.user) {
+    token = store.user.token
+  }
+  // if (data.webpage) {
+  //   id = data.webpage.id
+  // } else {
+  //   id = data
+  // }
+  return $.ajax({
+    url: config.apiUrl + '/ownedblogposts/' + data,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + token
+    }
+  })
+}
+
 const blogPostDelete = function (data) {
   const id = data.blogPost.id
   // if (data.blogPost) {
@@ -86,5 +106,6 @@ module.exports = {
   blogPostShow,
   blogPostDelete,
   blogPostCreate,
-  blogPostUpdate
+  blogPostUpdate,
+  getOwnedBlogposts
 }
