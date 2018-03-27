@@ -40,6 +40,26 @@ const getWebpage = function (data) {
   })
 }
 
+const getOwnedWebpages = function (data) {
+  token = ''
+  if (store.user) {
+    token = store.user.token
+  }
+  // if (data.webpage) {
+  //   id = data.webpage.id
+  // } else {
+  //   id = data
+  // }
+  return $.ajax({
+    url: config.apiUrl + '/ownedwebpages/' + data,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + token
+    }
+  })
+}
+
 const deleteWebpage = function (data) {
   // if (data.webpage) {
   //   id = data.webpage.id
@@ -82,6 +102,7 @@ const updateWebpage = function (data) {
 module.exports = {
   getWebpages,
   getWebpage,
+  getOwnedWebpages,
   deleteWebpage,
   createWebpage,
   updateWebpage

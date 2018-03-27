@@ -3,6 +3,7 @@
 const api = require('./api')
 const getFormFields = require('../../../lib/get-form-fields')
 const ui = require('./ui')
+const wpApi = require('../webpages/api.js')
 
 const onSignUp = function () {
   event.preventDefault()
@@ -41,11 +42,24 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const onViewOrgInfo = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.getUser(data.users.user_id)
+    .then(ui.viewOrgInfo)
+    .then(() => {
+      return wpApi.getOwnedWebpages(data.users.user_id)
+    })
+    .then(ui.showWebpageLinks)
+    .catch(console.error)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
+  $('#organizations-to-view').on('submit', onViewOrgInfo)
 }
 
 module.exports = {

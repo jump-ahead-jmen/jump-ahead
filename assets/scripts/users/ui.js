@@ -1,12 +1,15 @@
 'use strict'
 const userDropdown = require('./user-dropdown')
 const store = require('../store')
+const orgInfoTemplate = require('../templates/show-base-page.handlebars')
+const webpageLinksTemplate = require('../templates/page-links.handlebars')
 // above is for the token as well
 
 const signUpSuccess = function (data) {
   $('#message').text('Signed up Successfully!')
   $('#message').css('background-color', 'green')
   $('form').find('input:not([type="submit"])').val('')
+
   userDropdown()
   console.log(data)
 }
@@ -67,6 +70,20 @@ const signOutFailure = function (error) {
   $('form').find('input:not([type="submit"])').val('')
 }
 
+const viewOrgInfo = function (data) {
+  const orgInfoData = orgInfoTemplate({ users: data })
+  $('#content').html(orgInfoData)
+  console.log('viewOrgInfo data is', data)
+  return data
+}
+
+const showWebpageLinks = function (data) {
+  const webpageLinks = webpageLinksTemplate({ webpages: data.webpages })
+  $('#page-links').html(webpageLinks)
+  console.log('showWebPageLinks data is', data)
+  console.log('data.webpages[0].title is ', data.webpages[0].title)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -75,5 +92,7 @@ module.exports = {
   changePasswordFailure,
   signInFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  viewOrgInfo,
+  showWebpageLinks
 }

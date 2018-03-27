@@ -1,0 +1,7 @@
+{{#each users as |user|}}
+  <h1 class="org-name">{{user.organization}}</h1>
+  <h3 class="org-description">{{user.company_description}}</h3>
+  <h3 class="org-phone">{{user.phone_number}}</h3>
+  <h3 class="org-email">{{user.email}}</h3>
+  <h3 class="org-address">{{user.address}}</h3>
+{{/each}}
