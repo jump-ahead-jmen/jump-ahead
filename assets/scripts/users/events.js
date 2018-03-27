@@ -41,11 +41,25 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const onViewOrgInfo = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log('onViewOrgInfo is running')
+  console.log('data is', data)
+  console.log('data.users is', data.users)
+  api.getUser(data.users.user_id)
+    .then(response => {
+      console.log('response is ', response)
+    })
+  $('#content').text(data)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
+  $('#organizations-to-view').on('submit', onViewOrgInfo)
 }
 
 module.exports = {

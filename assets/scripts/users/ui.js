@@ -7,6 +7,7 @@ const signUpSuccess = function (data) {
   $('#message').text('Signed up Successfully!')
   $('#message').css('background-color', 'green')
   $('form').find('input:not([type="submit"])').val('')
+
   userDropdown()
   console.log(data)
 }
@@ -66,6 +67,8 @@ const signOutFailure = function (error) {
   $('#message').css('background-color', 'red')
   $('form').find('input:not([type="submit"])').val('')
 }
+
+
 
 module.exports = {
   signUpSuccess,
