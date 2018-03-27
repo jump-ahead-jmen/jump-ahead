@@ -4,7 +4,8 @@ const store = require('../store')
 const orgInfoTemplate = require('../templates/show-base-page.handlebars')
 const webpageLinksTemplate = require('../templates/page-links.handlebars')
 const blogEvents = require('../blogposts/events.js')
-// const blogPostEvents = require('../blogposts/events.js')
+const showOneLinkTemplate = require('../templates/show-one-link.handlebars')
+const webpageApi = require('../webpages/api.js')
 // above is for the token as well
 
 const signUpSuccess = function (data) {
@@ -85,7 +86,29 @@ const viewOrgInfo = function (data) {
 const showWebpageLinks = function (data) {
   const webpageLinks = webpageLinksTemplate({ webpages: data.webpages })
   $('#page-links').html(webpageLinks)
+<<<<<<< HEAD
   // console.log('showWebPageLinks data is', data)
+=======
+  $('.individual-page-link').on('click', showWebpageByLink)
+  console.log('fuck data, ', data.webpages[0].id)
+  console.log('showWebPageLinks data is', data)
+  console.log('data.webpages[0].title is ', data.webpages[0].title)
+>>>>>>> development
+}
+// () => $('#content').html(showOneLinkTemplate({ webpages: data.webpages }))
+
+const showWebpageByLink = function (event) {
+  const id = $(event.target).data('id')
+  webpageApi.getWebpage(id)
+    .then((response) => {
+      console.log(response)
+      return response
+    }
+    )
+    .then((data) => {
+      const webpageLink = showOneLinkTemplate({ webpage: data.webpage })
+      $('#content').html(webpageLink)
+    })
 }
 
 module.exports = {
@@ -98,5 +121,6 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   viewOrgInfo,
-  showWebpageLinks
+  showWebpageLinks,
+  showWebpageByLink
 }
