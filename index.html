@@ -39,6 +39,10 @@
           <form id="sign-out">
             <input type="submit" class="btn btn-primary" value="Sign out!">
           </form>
+
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-webpage-modal">
+            Create Webpage
+          </button>
         </div>
         <h3> View content from other organizations</h3>
         <form id='organizations-to-view'>
@@ -109,13 +113,31 @@
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
+
+
+        <div class="modal fade" id="create-webpage-modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content createwebpagecontent">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Create Webpage!</h4>
+              </div>
+              <div class="modal-body">
+                <form id="create-webpage" class="border">
+                  <fieldset>
+                    <form id="create-webpage" class="border">
+                      <input type="text" name="webpage[title]" placeholder="title" required>
+                      <textarea class="form-control" id="create-webpage-body" name="webpage[body]" placeholder="Body" rows="3" required></textarea>
+                      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#create-webpage-modal">Submit</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </form>
+                  </fieldset>
+                </form>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 <div class='otherforms'>
-      <form id="create-webpage" class="border">
-        <legend>create-webpage</legend>
-        <input type="text" name="webpage[title]" placeholder="title" required>
-        <input type="text" name="webpage[body]" placeholder="body" required>
-        <input type="submit" value="Create a webpage">
-      </form>
       <form id="get-webpages" class="border">
         <legend>get-webpages</legend>
         <input type="submit" value="Get all webpages!">
