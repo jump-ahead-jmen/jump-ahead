@@ -78,7 +78,7 @@ const viewOrgInfo = function (data) {
 }
 
 const showWebpageLinks = function (data) {
-  const webpageLinks = webpageLinksTemplate({ webpages: data })
+  const webpageLinks = webpageLinksTemplate({ webpages: data.webpages })
   $('#page-links').html(webpageLinks)
   console.log('showWebPageLinks data is', data)
   console.log('data.webpages[0].title is ', data.webpages[0].title)

@@ -1,4 +1,5 @@
 'use strict'
+const blogInfoTemplate = require('../templates/page-links.handlebars')
 
 const blogPostCreateSuccess = function (data) {
   $('#message').text('Created Blog Post successfully')
@@ -72,6 +73,13 @@ const blogPostDeleteFailure = function (error) {
   console.error(error)
 }
 
+const viewBlogInfo = function (data) {
+  const blogInfoData = blogInfoTemplate({ blogposts: data })
+  $('#content').html(blogInfoData)
+  console.log('viewBlogInfo data is', data)
+  return data
+}
+
 module.exports = {
   blogPostCreateSuccess,
   blogPostCreateFailure,
@@ -82,5 +90,6 @@ module.exports = {
   blogPostUpdateSuccess,
   blogPostUpdateFailure,
   blogPostDeleteSuccess,
-  blogPostDeleteFailure
+  blogPostDeleteFailure,
+  viewBlogInfo
 }
