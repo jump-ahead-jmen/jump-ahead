@@ -1,11 +1,11 @@
 function compare (a, b) {
-  const nameA = a.name
-  const nameB = b.name
+  const organizationA = a.organization.toLowerCase()
+  const organizationB = b.organization.toLowerCase()
 
   let comparison = 0
-  if (nameA > nameB) {
+  if (organizationA > organizationB) {
     comparison = 1
-  } else if (nameA < nameB) {
+  } else if (organizationA < organizationB) {
     comparison = -1
   }
   return comparison
