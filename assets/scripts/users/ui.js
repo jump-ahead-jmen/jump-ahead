@@ -2,6 +2,7 @@
 const userDropdown = require('./user-dropdown')
 const store = require('../store')
 const orgInfoTemplate = require('../templates/show-base-page.handlebars')
+const webpageLinksTemplate = require('../templates/page-links.handlebars')
 // above is for the token as well
 
 const signUpSuccess = function (data) {
@@ -72,6 +73,15 @@ const signOutFailure = function (error) {
 const viewOrgInfo = function (data) {
   const orgInfoData = orgInfoTemplate({ users: data })
   $('#content').html(orgInfoData)
+  console.log('viewOrgInfo data is', data)
+  return data
+}
+
+const showWebpageLinks = function (data) {
+  const webpageLinks = webpageLinksTemplate({ webpages: data })
+  $('#page-links').html(webpageLinks)
+  console.log('showWebPageLinks data is', data)
+  console.log('data.webpages[0].title is ', data.webpages[0].title)
 }
 
 module.exports = {
@@ -83,5 +93,6 @@ module.exports = {
   signInFailure,
   signOutSuccess,
   signOutFailure,
-  viewOrgInfo
+  viewOrgInfo,
+  showWebpageLinks
 }

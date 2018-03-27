@@ -3,6 +3,7 @@
 const api = require('./api')
 const getFormFields = require('../../../lib/get-form-fields')
 const ui = require('./ui')
+const wpApi = require('../webpages/api.js')
 
 const onSignUp = function () {
   event.preventDefault()
@@ -44,11 +45,13 @@ const onSignOut = function (event) {
 const onViewOrgInfo = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log('onViewOrgInfo is running')
-  console.log('data is', data)
-  console.log('data.users is', data.users)
   api.getUser(data.users.user_id)
     .then(ui.viewOrgInfo)
+    .then(() => {
+      return wpApi.getOwnedWebpages(data.users.user_id)
+    })
+    .then(ui.showWebpageLinks)
+    .catch(console.error)
 }
 
 const addHandlers = () => {
