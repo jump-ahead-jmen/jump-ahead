@@ -1,6 +1,7 @@
 'use strict'
 const userDropdown = require('./user-dropdown')
 const store = require('../store')
+const orgInfoTemplate = require('../templates/show-base-page.handlebars')
 // above is for the token as well
 
 const signUpSuccess = function (data) {
@@ -68,7 +69,10 @@ const signOutFailure = function (error) {
   $('form').find('input:not([type="submit"])').val('')
 }
 
-
+const viewOrgInfo = function (data) {
+  const orgInfoData = orgInfoTemplate({ users: data })
+  $('#content').html(orgInfoData)
+}
 
 module.exports = {
   signUpSuccess,
@@ -78,5 +82,6 @@ module.exports = {
   changePasswordFailure,
   signInFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  viewOrgInfo
 }

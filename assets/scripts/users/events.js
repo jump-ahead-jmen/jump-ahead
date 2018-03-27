@@ -48,10 +48,7 @@ const onViewOrgInfo = function (event) {
   console.log('data is', data)
   console.log('data.users is', data.users)
   api.getUser(data.users.user_id)
-    .then(response => {
-      console.log('response is ', response)
-    })
-  $('#content').text(data)
+    .then(ui.viewOrgInfo)
 }
 
 const addHandlers = () => {
