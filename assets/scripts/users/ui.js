@@ -87,7 +87,7 @@ const showWebpageLinks = function (data) {
   const webpageLinks = webpageLinksTemplate({ webpages: data.webpages })
   $('#page-links').html(webpageLinks)
   $('.individual-page-link').on('click', showWebpageByLink)
-
+}
 
 const showWebpageByLink = function (event) {
   const id = $(event.target).data('id')
