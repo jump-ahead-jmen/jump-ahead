@@ -8,6 +8,7 @@ const showOnePageTemplate = require('../templates/show-one-page.handlebars')
 const showOnePageTemplateWithButtons = require('../templates/show-one-page-with-buttons.handlebars')
 const webpageApi = require('../webpages/api.js')
 const api = require('./api.js')
+// const showOrgHeader = require('../templates/show-org-header.handlebars')
 let webpagelink
 // above is for the token as well
 
@@ -68,6 +69,7 @@ const signOutSuccess = function (data) {
   $('form').find('input:not([type="submit"])').val('')
   $('.signed-in-buttons').hide()
   $('.signed-out-buttons').show()
+  $('.jump-ahead-slogan').show()
   store.user = null
 }
 
@@ -79,6 +81,9 @@ const signOutFailure = function (error) {
 
 const viewOrgInfo = function (data) {
   const orgInfoData = orgInfoTemplate({ users: data })
+  // const showOrgHeaderData = showOrgHeader({ users: data })
+  // $('#header-h1').html(showOrgHeaderData)
+  $('.jump-ahead-slogan').hide()
   $('#content').html(orgInfoData)
   console.log('viewOrgInfo data is', data)
   console.log('data.user.id is', data.user.id)
