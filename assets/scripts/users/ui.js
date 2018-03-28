@@ -5,9 +5,10 @@ const api = require('./api.js')
 // above is for the token as well
 
 const signUpSuccess = function (data) {
-  $('#message').text('Signed up and signed-in successfully!')
-  $('#message').removeClass('alert-danger').addClass('alert-success').show()
+  // $('#message').text('Signed up and signed in successfully!')
+  // $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('#sign-up-modal').modal('hide')
+  // $('#message').delay(3000).slideToggle()
   const myNewData = { // made a new const called myNewData
     'credentials': { // used credentials from the shell files
       'email': $('#username-id-create').val(), // calls value of username-id-create and stores it in email
@@ -27,6 +28,7 @@ const signUpFailure = function (error) {
   $('#message').text('Error on signing up!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
 }
 const signInSuccess = function (data) {
   $('.signed-in-buttons').show()
@@ -34,6 +36,7 @@ const signInSuccess = function (data) {
   $('#message').text('Signed in Successfully!')
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
   console.log(data)
   // below is for the token
   store.user = data.user
@@ -45,6 +48,7 @@ const signInFailure = function (error) {
   $('#message').text('Error on signing in!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
   // $('#sign-in').val('')
 }
 
@@ -52,6 +56,7 @@ const changePasswordSuccess = function (data) {
   $('#message').text('Changed password successfully!')
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
   // $('#sign-in').val('')
 }
 
@@ -60,6 +65,7 @@ const changePasswordFailure = function (error) {
   $('#message').text('Error on changing password!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
 }
 
 const signOutSuccess = function (data) {
@@ -69,6 +75,7 @@ const signOutSuccess = function (data) {
   $('.signed-in-buttons').hide()
   $('.signed-out-buttons').show()
   $('.jump-ahead-slogan').show()
+  $('#message').delay(3000).slideToggle()
   store.user = null
 }
 
@@ -77,6 +84,7 @@ const signOutFailure = function (error) {
   $('#message').text('Error on signing out!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
 }
 
 module.exports = {
