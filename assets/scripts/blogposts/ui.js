@@ -82,11 +82,13 @@ const showBlogPosts = function (data) {
       console.log('store.user is', store.user)
       console.log('store.viewed_user is', store.viewed_user)
       blogInfoData = blogInfoTemplateWithButtons({ blogPosts: data.blogPosts })
+      $('form').find('input:not([type="submit"])').val('')
     }
   } else {
     console.log('store.user is', store.user)
     console.log('store.viewed_user is', store.viewed_user)
     blogInfoData = blogInfoTemplate({ blogPosts: data.blogPosts })
+    $('form').find('input:not([type="submit"])').val('')
   }
   $('#content').html(blogInfoData)
   console.log('showBlogPosts data is', data)

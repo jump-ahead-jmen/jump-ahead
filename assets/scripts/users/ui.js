@@ -89,6 +89,7 @@ const viewOrgInfo = function (data) {
   console.log('data.user.id is', data.user.id)
   $('.showblogbutton').on('click', () => blogEvents.onShowBlogPosts(data))
   $('.showblogbutton').on('click', () => console.log('button clicked'))
+  $('form').find('input:not([type="submit"])').val('')
   return data
 }
 
