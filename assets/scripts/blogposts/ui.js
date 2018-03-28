@@ -9,6 +9,7 @@ const blogPostCreateSuccess = function (data) {
   $('#message').text('Created blog post successfully!')
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
   console.log(data)
 }
 
@@ -17,6 +18,7 @@ const blogPostCreateFailure = function (error) {
   $('#message').text('Error on creating a blog post!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
   console.error(error)
 }
 
@@ -55,6 +57,7 @@ const blogPostUpdateSuccess = function (data) {
   $('#message').text('Updated blog post successfully!')
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
   console.log(data)
 }
 
@@ -63,6 +66,7 @@ const blogPostUpdateFailure = function (error) {
   $('#message').text('Error on creating a blog post!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
   console.error(error)
 }
 
@@ -72,13 +76,14 @@ const blogPostDeleteSuccess = function (data) {
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
   console.log(data)
+  $('#message').delay(3000).slideToggle()
 }
 
 const blogPostDeleteFailure = function (error) {
   $('#confirmDeleteBlogPostModal').modal('hide')
-  $('#confirmDeleteWebpageModal').modal('hide')
   $('#message').text('Error on deleting webpage!')
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
   console.error(error)
 }
 

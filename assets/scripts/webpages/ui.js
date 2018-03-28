@@ -5,6 +5,7 @@ const createWebpageSuccess = function (data) {
   $('#message').text('Created webpage successfully!')
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
   console.log(data)
   console.log('ui create wp works')
 }
@@ -15,6 +16,7 @@ const createWebpageFailure = function (error) {
   $('#message').text('Error on creating a webpage!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
 }
 const getWebpagesSuccess = function (data) {
   $('#message').text('Retrieved webpages successfully!')
@@ -50,6 +52,7 @@ const updateWebpageSuccess = function (data) {
   $('#message').text('Updated webpage successfully!')
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
   console.log('this ui works')
 }
 
@@ -59,6 +62,7 @@ const updateWebpageFailure = function (error) {
   $('#message').text('Error on updating webpage!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
 }
 
 const deleteWebpageSuccess = function (data) {
@@ -66,6 +70,7 @@ const deleteWebpageSuccess = function (data) {
   $('#message').text('Deleted webpage successfully!')
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
   console.log('this ui works')
 }
 
@@ -75,6 +80,7 @@ const deleteWebpageFailure = function (error) {
   $('#message').text('Error on deleting webpage!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
 }
 
 module.exports = {
