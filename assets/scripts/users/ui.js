@@ -57,7 +57,8 @@ const signInFailure = function (error) {
 }
 
 const changePasswordSuccess = function (data) {
-  $('#message').text('Change password Successfully!')
+  $('#message').text('Changed password successfully!')
+  $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
   // $('#sign-in').val('')
 }
@@ -65,6 +66,7 @@ const changePasswordSuccess = function (data) {
 const changePasswordFailure = function (error) {
   console.log(error)
   $('#message').text('Error on changing password!')
+  $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
 }
 
