@@ -42,15 +42,6 @@ const onBlogPostDelete = function () {
     .catch(ui.blogPostDeleteFailure)
 }
 
-const onShowBlogPosts = function (data) {
-  // this next console log is showing an empty object
-  console.log('onShowBlogPosts data is', data)
-  api.getOwnedBlogposts(data.user.id)
-    // .then((response) => console.log('response is', response))
-    .then(ui.showBlogPosts)
-    .catch(console.error)
-}
-
 const addHandlers = () => {
   $('#create-blogPost').on('submit', onBlogPostCreate)
   $('#show-blogPost').on('submit', onBlogPostShow)
@@ -61,6 +52,5 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  onShowBlogPosts,
   onBlogPostUpdate
 }

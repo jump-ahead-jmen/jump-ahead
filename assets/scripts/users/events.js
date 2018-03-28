@@ -5,6 +5,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 const ui = require('./ui')
 const wpApi = require('../webpages/api.js')
 const store = require('../store.js')
+const viewMain = require('../basepage.js')
 
 const onSignUp = function () {
   event.preventDefault()
@@ -51,11 +52,11 @@ const onViewOrgInfo = function (event) {
   console.log('viewed user id is', store.viewed_user.user_id)
   console.log('current user is', store.user)
   api.getUser(data.users.user_id)
-    .then(ui.viewOrgInfo)
+    .then(viewMain.viewOrgInfo)
     .then(() => {
       return wpApi.getOwnedWebpages(data.users.user_id)
     })
-    .then(ui.showWebpageLinks)
+    .then(viewMain.showWebpageLinks)
     .catch(console.error)
 }
 
