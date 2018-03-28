@@ -1,9 +1,9 @@
 {{#each users as |user|}}
-  <h1 class="org-name">{{user.organization}}</h1>
-  <h3 class="org-description">Who are we? {{user.company_description}}</h3>
-  <h3 class="org-phone">Phone: {{user.phone_number}}</h3>
-  <h3 class="org-email">Email: {{user.email}}</h3>
-  <h3 class="org-address">Address: {{user.address}}</h3>
+  <h1 class="resource-header" class="org-name">{{user.organization}}</h1>
+  <h3 class="resource-body" class="org-description">Who are we? {{user.company_description}}</h3>
+  <h3 class="resource-body" class="org-phone">Phone: {{user.phone_number}}</h3>
+  <h3 class="resource-body" class="org-email">Email: {{user.email}}</h3>
+  <h3 class="resource-body" class="org-address">Address: {{user.address}}</h3>
   <button class="btn btn-primary showblogbutton" data-id="{{user.id}}">See blog posts</button>
 {{/each}}
-<div class="page-links" id="page-links"></div>
+<div class="resource-body" class="page-links" id="page-links"></div>

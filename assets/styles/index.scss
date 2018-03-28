@@ -1,6 +1,11 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+.container-fluid {
+  background-color: #EEEEEE;
+  font-family: Georgia;
+}
+
 .signupcontent,
 .signincontent,
 .changepasswordcontent {
@@ -15,4 +20,24 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .page-links {
   color: blue;
   text-decoration: underline;
+}
+
+.resource-header {
+  display: block;
+  font-weight: bold;
+  margin: 40px auto;
+  width: 50%;
+  // -webkit-margin-before: 1em;
+  // -webkit-margin-after: 1em;
+  // -webkit-margin-start: 0px;
+  // -webkit-margin-end: 0px;
+}
+
+.resource-body {
+  margin: 40px auto;
+  width: 50%;
+  line-height: 1.6;
+  font-size: 18px;
+  color: #444;
+  padding: 0 10px;
 }
