@@ -12,9 +12,8 @@ const createWebpageSuccess = function (data) {
 const createWebpageFailure = function (error) {
   console.log(error)
   $('#create-webpage-modal').modal('hide')
-  $('#message').text('Error on error on creating a webpage!')
+  $('#message').text('Error on creating a webpage!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
-  $('#message').css('background-color', 'red')
   $('form').find('input:not([type="submit"])').val('')
 }
 const getWebpagesSuccess = function (data) {

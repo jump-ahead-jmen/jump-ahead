@@ -4,7 +4,7 @@ const webpagesApi = require('./webpages/api.js')
 // const webpagesEvents = require('./webpages/events.js')
 const webpagesUI = require('./webpages/ui.js')
 const blogPostsApi = require('./blogposts/api.js')
-// const blogPostsUI = require('./blogPosts/ui.js')
+const blogPostsUI = require('./blogPosts/ui.js')
 
 let deletionID
 
@@ -37,6 +37,8 @@ const removeBlogPost = function (event) {
   blogPostsApi.blogPostDelete(deletionID)
   // .then($('#newcontent').find(`[data-id='${deletionID}']`).hide())
   // .catch(blogPostsUI.blogPostDeleteFailure)
+    .then(blogPostsUI.blogPostDeleteSuccess)
+    .catch(blogPostsUI.blogPostDeleteFailure)
 }
 
 const addHandlers = () => {

@@ -5,15 +5,17 @@ const store = require('../store.js')
 let blogInfoData
 
 const blogPostCreateSuccess = function (data) {
-  $('#message').text('Created Blog Post successfully')
-  $('#message').css('background-color', 'green')
+  $('#create-blogPost-modal').modal('hide')
+  $('#message').text('Created blog post successfully!')
+  $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
   console.log(data)
 }
 
 const blogPostCreateFailure = function (error) {
-  $('#message').text('Error on creating blog post')
-  $('#message').css('background-color', 'red')
+  $('#create-blogPost-modal').modal('hide')
+  $('#message').text('Error on creating a blog post!')
+  $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
   console.error(error)
 }
@@ -49,29 +51,33 @@ const blogPostIndexFailure = function (error) {
 }
 
 const blogPostUpdateSuccess = function (data) {
-  $('#message').text('Updated Blog Post successfully')
-  $('#message').css('background-color', 'green')
+  $('#update-blogPost-modal').modal('hide')
+  $('#message').text('Updated blog post successfully!')
+  $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
   console.log(data)
 }
 
 const blogPostUpdateFailure = function (error) {
-  $('#message').text('Error on updating blog post')
-  $('#message').css('background-color', 'red')
+  $('#update-blogPost-modal').modal('hide')
+  $('#message').text('Error on creating a blog post!')
+  $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
   console.error(error)
 }
 
 const blogPostDeleteSuccess = function (data) {
-  $('#message').text('Deleted Blog Post successfully')
-  $('#message').css('background-color', 'green')
+  $('#confirmDeleteBlogPostModal').modal('hide')
+  $('#message').text('Deleted blog post successfully!')
+  $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
   console.log(data)
 }
 
 const blogPostDeleteFailure = function (error) {
-  $('#message').text('Error on deleting blog post')
-  $('#message').css('background-color', 'red')
+  $('#confirmDeleteBlogPostModal').modal('hide')
+  $('#confirmDeleteWebpageModal').modal('hide')
+  $('#message').text('Error on deleting webpage!')
   $('form').find('input:not([type="submit"])').val('')
   console.error(error)
 }
