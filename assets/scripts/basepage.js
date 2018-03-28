@@ -15,6 +15,8 @@ const viewOrgInfo = function (data) {
   $('#content').html(orgInfoData)
   console.log('viewOrgInfo data is', data)
   console.log('data.user.id is', data.user.id)
+  console.log('data.user.organization is', data.user.organization)
+  store.viewed_user.organization = data.user.organization
   console.log('MAIN VIEWED')
   $('.showblogbutton').on('click', () => onShowBlogPosts(data))
   return data
@@ -40,14 +42,16 @@ const showWebpageByLink = function (event) {
         if (store.user.id === store.viewed_user.user_id) {
           console.log('store.user is', store.user)
           console.log('store.viewed_user is', store.viewed_user)
-          webpage = showOnePageTemplateWithButtons({ webpage: data.webpage })
+          webpage = showOnePageTemplateWithButtons({ webpage: data.webpage,
+            organization: store.viewed_user.organization})
         }
       } else {
         console.log('store.user is', store.user)
         console.log('store.viewed_user is', store.viewed_user)
         console.log('data is', data)
         console.log('data.webpage.title is', data.webpage.title)
-        webpage = showOnePageTemplate({ webpage: data.webpage })
+        webpage = showOnePageTemplate({ webpage: data.webpage,
+          organization: store.viewed_user.organization})
       }
       $('#content').html(webpage)
     })
