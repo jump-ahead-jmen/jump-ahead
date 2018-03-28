@@ -83,3 +83,25 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
     padding: 25px;
     margin: 25px;
 }
+
+.footer {
+  clear: top;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #5bc0de;
+  opacity: 0.6;
+  text-align: center;
+}
+
+.footer-message {
+  font-weight: bold;
+  margin: 1% auto;
+  text-align: center;
+}
+
+.bottom-clear {
+  padding: 40px;
+}
