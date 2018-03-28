@@ -81,13 +81,16 @@ const showBlogPosts = function (data) {
     if (store.user.id === store.viewed_user.user_id) {
       console.log('store.user is', store.user)
       console.log('store.viewed_user is', store.viewed_user)
-      blogInfoData = blogInfoTemplateWithButtons({ blogPosts: data.blogPosts })
+      blogInfoData = blogInfoTemplateWithButtons({ blogPosts: data.blogPosts,
+        organization: store.viewed_user.organization})
       $('form').find('input:not([type="submit"])').val('')
     }
   } else {
     console.log('store.user is', store.user)
     console.log('store.viewed_user is', store.viewed_user)
-    blogInfoData = blogInfoTemplate({ blogPosts: data.blogPosts })
+    console.log('store.viewed_user.organization is', store.viewed_user.organization)
+    blogInfoData = blogInfoTemplate({ blogPosts: data.blogPosts,
+      organization: store.viewed_user.organization})
     $('form').find('input:not([type="submit"])').val('')
   }
   $('#content').html(blogInfoData)

@@ -1,11 +1,14 @@
 {{#each blogPosts as |blogPost|}}
   <div data-id="{{blogPost.id}}">
-    <h1 class="resource-header">{{blogPost._owner.organization}}</h1>
-    <h1 class="resource-header">{{blogPost.title}}</h1>
+    <h2 class="resource-header">{{blogPost._owner.organization}}</h1>
+    <h2 class="resource-header">{{blogPost.title}}</h1>
       <br />
       <p class="resource-body">{{blogPost.body}}</p>
       <p class="resource-body">{{blogPost.createdAt}}</p>
   </div>
+  {{else}}
+
+  <h2>{{organization}} has not posted any blog entries yet</h2>
 {{/each}}
 
 <span class="page-links" id="back-link">Return to Main</span>
