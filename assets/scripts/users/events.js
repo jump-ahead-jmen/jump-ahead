@@ -4,6 +4,7 @@ const api = require('./api')
 const getFormFields = require('../../../lib/get-form-fields')
 const ui = require('./ui')
 const wpApi = require('../webpages/api.js')
+const store = require('../store.js')
 
 const onSignUp = function () {
   event.preventDefault()
@@ -45,6 +46,10 @@ const onSignOut = function (event) {
 const onViewOrgInfo = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  store.viewed_user = data.users
+  console.log('viewed user is', store.viewed_user)
+  console.log('viewed user id is', store.viewed_user.user_id)
+  console.log('current user is', store.user)
   api.getUser(data.users.user_id)
     .then(ui.viewOrgInfo)
     .then(() => {

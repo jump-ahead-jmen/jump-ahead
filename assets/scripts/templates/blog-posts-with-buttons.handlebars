@@ -1,0 +1,11 @@
+{{#each blogPosts as |blogPost|}}
+  <div data-id="{{blogPost.id}}">
+    <h1>{{blogPost._owner.organization}}</h1>
+    <h1>{{blogPost.title}}</h1>
+      <br />
+      <p>{{blogPost.body}}</p>
+      <p>{{blogPost.createdAt}}</p>
+      <button>Edit</button>
+      <button>Delete</button>
+  </div>
+{{/each}}

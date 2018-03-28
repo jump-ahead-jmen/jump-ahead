@@ -1,5 +1,8 @@
 'use strict'
 const blogInfoTemplate = require('../templates/blog-posts.handlebars')
+const blogInfoTemplateWithButtons = require('../templates/blog-posts-with-buttons.handlebars')
+const store = require('../store.js')
+let blogInfoData
 
 const blogPostCreateSuccess = function (data) {
   $('#message').text('Created Blog Post successfully')
@@ -74,7 +77,17 @@ const blogPostDeleteFailure = function (error) {
 }
 
 const showBlogPosts = function (data) {
-  const blogInfoData = blogInfoTemplate({ blogPosts: data.blogPosts })
+  if (store.user) {
+    if (store.user.id === store.viewed_user.user_id) {
+      console.log('store.user is', store.user)
+      console.log('store.viewed_user is', store.viewed_user)
+      blogInfoData = blogInfoTemplateWithButtons({ blogPosts: data.blogPosts })
+    }
+  } else {
+    console.log('store.user is', store.user)
+    console.log('store.viewed_user is', store.viewed_user)
+    blogInfoData = blogInfoTemplate({ blogPosts: data.blogPosts })
+  }
   $('#content').html(blogInfoData)
   console.log('showBlogPosts data is', data)
   return data
