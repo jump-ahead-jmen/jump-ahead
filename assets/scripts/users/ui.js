@@ -69,6 +69,7 @@ const signOutSuccess = function (data) {
   $('form').find('input:not([type="submit"])').val('')
   $('.signed-in-buttons').hide()
   $('.signed-out-buttons').show()
+  $('.jump-ahead-slogan').show()
   store.user = null
 }
 
