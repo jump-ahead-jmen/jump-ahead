@@ -4,6 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 let token
+let id
 
 const blogPostIndex = function () {
   token = ''
@@ -62,7 +63,10 @@ const getOwnedBlogposts = function (data) {
 }
 
 const blogPostDelete = function (data) {
-  const id = data.blogPost.id
+  id = data
+  if (data.blogPost) {
+    id = data.blogPost.id
+  }
   // if (data.blogPost) {
   //   id = data.blogPost.id
   // } else {

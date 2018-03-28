@@ -17,21 +17,24 @@ const identifyWebPageToRemove = function (event) {
 
 const removeWebPage = function (event) {
   webpagesApi.deleteWebpage(deletionID)
-    // .then(webpagesEvents.onWebpageMaintainedIndex)
-    // .catch(webpagesUI.webpageDeleteFailure)
+  // .then(webpagesEvents.onWebpageMaintainedIndex)
+  // .catch(webpagesUI.webpageDeleteFailure)
 }
 
 const identifyBlogPostToRemove = function (event) {
   event.preventDefault()
+  console.log('clicked')
+  console.log('event.target.dataset.id is,', event.target.dataset.id)
   // currentEvent = event
   deletionID = event.target.dataset.id
-  $('#confirmDeletyBlogPostModal').modal('show')
+  console.log(deletionID)
+  $('#confirmDeleteBlogPostModal').modal('show')
 }
 
 const removeBlogPost = function (event) {
   blogPostsApi.blogPostDelete(deletionID)
-    // .then($('#newcontent').find(`[data-id='${deletionID}']`).hide())
-    // .catch(blogPostsUI.blogPostDeleteFailure)
+  // .then($('#newcontent').find(`[data-id='${deletionID}']`).hide())
+  // .catch(blogPostsUI.blogPostDeleteFailure)
 }
 
 const addHandlers = () => {

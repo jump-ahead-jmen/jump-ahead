@@ -5,7 +5,7 @@
       <br />
       <p class="resource-body">{{blogPost.body}}</p>
       <p class="resource-body">{{blogPost.createdAt}}</p>
-      <button>Edit</button>
-      <button>Delete</button>
+      <button class="blogPost-update btn btn-sm btn-info" data-id={{blogPost.id}}>Update</button>
+      <button class="blogPost-delete btn btn-sm btn-danger" data-id={{blogPost.id}}>Delete</button>
   </div>
 {{/each}}
