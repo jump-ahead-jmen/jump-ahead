@@ -13,7 +13,7 @@ let webpagelink
 
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
-  $('#message').css('background-color', 'green')
+  $('#sign-up-modal').modal('hide')
   const myNewData = { // made a new const called myNewData
     'credentials': { // used credentials from the shell files
       'email': $('#username-id-create').val(), // calls value of username-id-create and stores it in email
@@ -29,8 +29,8 @@ const signUpSuccess = function (data) {
 }
 const signUpFailure = function (error) {
   console.log(error)
+  $('#sign-up-modal').modal('hide')
   $('#message').text('Error on signing up!')
-  $('#message').css('background-color', 'red')
   $('form').find('input:not([type="submit"])').val('')
 }
 const signInSuccess = function (data) {
@@ -60,13 +60,11 @@ const changePasswordSuccess = function (data) {
 const changePasswordFailure = function (error) {
   console.log(error)
   $('#message').text('Error on changing password!')
-  $('#message').css('background-color', 'red')
   $('form').find('input:not([type="submit"])').val('')
 }
 
 const signOutSuccess = function (data) {
   $('#message').text('Signed out Successfully!')
-  $('#message').css('background-color', 'green')
   $('form').find('input:not([type="submit"])').val('')
   $('.signed-in-buttons').hide()
   $('.signed-out-buttons').show()
@@ -76,7 +74,6 @@ const signOutSuccess = function (data) {
 const signOutFailure = function (error) {
   console.log(error)
   $('#message').text('Error on signing out!')
-  $('#message').css('background-color', 'red')
   $('form').find('input:not([type="submit"])').val('')
 }
 
