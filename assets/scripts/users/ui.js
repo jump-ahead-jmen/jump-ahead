@@ -13,7 +13,8 @@ let webpagelink
 // above is for the token as well
 
 const signUpSuccess = function (data) {
-  $('#message').text('Signed up successfully')
+  $('#message').text('Signed up and signed-in successfully!')
+  $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('#sign-up-modal').modal('hide')
   const myNewData = { // made a new const called myNewData
     'credentials': { // used credentials from the shell files
@@ -32,12 +33,14 @@ const signUpFailure = function (error) {
   console.log(error)
   $('#sign-up-modal').modal('hide')
   $('#message').text('Error on signing up!')
+  $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
 }
 const signInSuccess = function (data) {
   $('.signed-in-buttons').show()
   $('.signed-out-buttons').hide()
   $('#message').text('Signed in Successfully!')
+  $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
   console.log(data)
   // below is for the token
@@ -48,6 +51,7 @@ const signInSuccess = function (data) {
 const signInFailure = function (error) {
   console.log(error)
   $('#message').text('Error on signing in!')
+  $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
   // $('#sign-in').val('')
 }
@@ -65,7 +69,8 @@ const changePasswordFailure = function (error) {
 }
 
 const signOutSuccess = function (data) {
-  $('#message').text('Signed out Successfully!')
+  $('#message').text('Signed out successfully!')
+  $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
   $('.signed-in-buttons').hide()
   $('.signed-out-buttons').show()
@@ -76,6 +81,7 @@ const signOutSuccess = function (data) {
 const signOutFailure = function (error) {
   console.log(error)
   $('#message').text('Error on signing out!')
+  $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
 }
 
