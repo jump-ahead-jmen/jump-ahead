@@ -70,6 +70,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 .resource-body {
+  list-style: none;
   margin: 40px auto;
   width: 50%;
   line-height: 1.6;
@@ -79,6 +80,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 .blogborder {
+    list-style: none;
     width: 60%;
     border: 10px solid black;
     padding: 25px;
