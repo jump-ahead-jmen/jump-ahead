@@ -43,6 +43,10 @@
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-webpage-modal">
             Create Webpage
           </button>
+
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-blogPost-modal">
+            Create BlogPost
+          </button>
         </div>
         <h3 class="drop-down-title"> View content from other organizations</h3>
         <div class="dropdown">
@@ -142,6 +146,29 @@
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
+
+        <div class="modal fade" id="create-blogPost-modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content createblogPostcontent">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Create BlogPost!</h4>
+              </div>
+              <div class="modal-body">
+                <form id="create-blogPost" class="border">
+                  <fieldset>
+                    <form id="create-blogPost" class="border">
+                      <input type="text" name="blogPost[title]" placeholder="title" required>
+                      <textarea class="form-control" id="create-blogPost-body" name="blogPost[body]" placeholder="Body" rows="3" required></textarea>
+                      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#create-blogPost-modal">Submit</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </form>
+                  </fieldset>
+                </form>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 <div class='otherforms'>
       <form id="get-webpages" class="border">
         <legend>get-webpages</legend>
@@ -173,12 +200,6 @@
         <input type="text" name="blogPost[id]" placeholder="Blog Post ID">
         <input type="submit" value="Get one BlogPost">
       </form>
-      <form id="create-blogPost">
-        <legend>Create one blog posts</legend>
-        <input type="text" name="blogPost[title]" placeholder="Blog Post title">
-        <input type="text" name="blogPost[body]" placeholder="Blog Post body">
-        <input type="submit" value="Create one BlogPost">
-      </form>
       <form id="update-blogPost">
         <legend>Get one blog posts</legend>
         <input type="text" name="blogPost[id]" placeholder="Blog Post ID">
@@ -193,6 +214,45 @@
       </form>
     </div>
   </div>
+  <div class="modal fade" id="confirmDeleteWebpageModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteWebpageModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="confirmDeleteWebpageModalLabel">Confirm Deletion</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this webpage?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-info webpageDeleteConfirmButton" data-dismiss='modal'>Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="confirmDeleteBlogPostModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteBlogPostModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="confirmDeleteBlogPostModalLabel">Confirm Deletion</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this blog post?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-info blogPostDeleteConfirmButton" data-dismiss='modal'>Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
   <div id="content"></div>
   <!-- <div id="content" -->
     </body>
