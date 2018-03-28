@@ -4,7 +4,7 @@ const store = require('../store')
 const orgInfoTemplate = require('../templates/show-base-page.handlebars')
 const webpageLinksTemplate = require('../templates/page-links.handlebars')
 const blogEvents = require('../blogposts/events.js')
-const showOneLinkTemplate = require('../templates/show-one-link.handlebars')
+const showOnePageTemplate = require('../templates/show-one-page.handlebars')
 const webpageApi = require('../webpages/api.js')
 const api = require('./api.js')
 // above is for the token as well
@@ -106,9 +106,21 @@ const showWebpageByLink = function (event) {
     }
     )
     .then((data) => {
-      const webpageLink = showOneLinkTemplate({ webpage: data.webpage })
+      const webpageLink = showOnePageTemplate({ webpage: data.webpage })
       $('#content').html(webpageLink)
     })
+    .then(() => $('#back-link').on('click', goBackToMain))
+}
+
+const goBackToMain = function () {
+  console.log('viewed_user.id is', store.viewed_user)
+  api.getUser(store.viewed_user.user_id)
+    .then(viewOrgInfo)
+    .then(() => {
+      return webpageApi.getOwnedWebpages(store.viewed_user.user_id)
+    })
+    .then(showWebpageLinks)
+    .catch(console.error)
 }
 
 module.exports = {
