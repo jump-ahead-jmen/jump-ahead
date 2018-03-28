@@ -112,7 +112,7 @@ const showWebpageByLink = function (event) {
         if (store.user.id === store.viewed_user.user_id) {
           console.log('store.user is', store.user)
           console.log('store.viewed_user is', store.viewed_user)
-          webpagelink = showOnePageTemplateWithButtons({ blogPosts: data.webpage })
+          webpagelink = showOnePageTemplateWithButtons({ webpage: data.webpage })
         }
       } else {
         console.log('store.user is', store.user)
