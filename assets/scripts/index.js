@@ -6,6 +6,7 @@ const webpageEvents = require('./webpages/events.js')
 const blogPostEvents = require('./blogposts/events.js')
 const userDropdown = require('./users/user-dropdown.js')
 const deleteEvents = require('./delete-events.js')
+const updateEvents = require('./update-events.js')
 
 $(() => {
   userDropdown()
@@ -13,6 +14,7 @@ $(() => {
   webpageEvents.addHandlers()
   blogPostEvents.addHandlers()
   deleteEvents.addHandlers()
+  updateEvents.addHandlers()
 })
 
 // use require with a reference to bundle the file and use it in this file
