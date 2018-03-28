@@ -19,36 +19,38 @@
           <section class="lede">Get a jump start on your company's website with Jump Ahead!</section>
         </header>
 
-        <p id="message"></p>
+        <div class="messageAlert" id="message"></div>
 
         <div class='signed-out-buttons'>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sign-up-modal">
+          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#sign-up-modal">
             Create New User
           </button>
-
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sign-in-modal">
+          <br />
+          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#sign-in-modal">
             Sign In
           </button>
         </div>
 
         <div class='signed-in-buttons'>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#change-password-modal">
+          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#change-password-modal">
             Change Password
           </button>
-
+          <br />
           <form id="sign-out">
-            <input type="submit" class="btn btn-primary" value="Sign out!">
+            <input type="submit" class="btn btn-danger" value="Sign out!">
           </form>
-
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-webpage-modal">
+          <br />
+          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-webpage-modal">
             Create Webpage
           </button>
         </div>
-        <h3> View content from other organizations</h3>
-        <form id='organizations-to-view'>
-          <span class='user-dropdown'></span>
-          <input type="submit" class="btn btn-primary" value="See their page!">
-        </form>
+        <h3 class="drop-down-title"> View content from other organizations</h3>
+        <div class="dropdown">
+          <form id='organizations-to-view'>
+            <span class='user-dropdown'></span>
+            <input type="submit" class="btn btn-info" value="See their page!">
+          </form>
+        </div>
         <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog">
           <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content signupcontent">
@@ -66,7 +68,7 @@
                     <input type="text" name="credentials[email]" id="username-id-create" placeholder="Email" required>
                     <input type="password" name="credentials[password]" id="password-id-create" placeholder="Password" required>
                     <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" required><br>
-                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#sign-up-modal">Submit</button>
+                    <button type="submit" class="btn btn-info" data-toggle="modal" data-target="#sign-up-modal">Submit</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                   </fieldset>
                 </form>
@@ -87,7 +89,7 @@
                   <fieldset>
                     <input type="text" name="credentials[email]" placeholder="Email" required>
                     <input type="password" name="credentials[password]" placeholder="Password" required><br>
-                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#sign-in-modal">Submit</button>
+                    <button type="submit" class="btn btn-info" data-toggle="modal" data-target="#sign-in-modal">Submit</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                   </fieldset>
                 </form>
@@ -108,7 +110,7 @@
                   <fieldset>
                     <input type="password" name="passwords[old]" placeholder="Old Password" required>
                     <input type="password" name="passwords[new]" placeholder="New Password" required><br>
-                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#change-password-modal">Submit</button>
+                    <button type="submit" class="btn btn-info" data-toggle="modal" data-target="#change-password-modal">Submit</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                   </fieldset>
                 </form>
@@ -131,7 +133,7 @@
                     <form id="create-webpage" class="border">
                       <input type="text" name="webpage[title]" placeholder="title" required>
                       <textarea class="form-control" id="create-webpage-body" name="webpage[body]" placeholder="Body" rows="3" required></textarea>
-                      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#create-webpage-modal">Submit</button>
+                      <button type="submit" class="btn btn-info" data-toggle="modal" data-target="#create-webpage-modal">Submit</button>
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </form>
                   </fieldset>
