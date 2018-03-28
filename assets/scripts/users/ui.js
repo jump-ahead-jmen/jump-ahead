@@ -1,15 +1,7 @@
 'use strict'
 const userDropdown = require('./user-dropdown')
 const store = require('../store')
-const orgInfoTemplate = require('../templates/show-base-page.handlebars')
-const webpageLinksTemplate = require('../templates/page-links.handlebars')
-const blogEvents = require('../blogposts/events.js')
-const showOnePageTemplate = require('../templates/show-one-page.handlebars')
-const showOnePageTemplateWithButtons = require('../templates/show-one-page-with-buttons.handlebars')
-const webpageApi = require('../webpages/api.js')
 const api = require('./api.js')
-// const showOrgHeader = require('../templates/show-org-header.handlebars')
-let webpagelink
 // above is for the token as well
 
 const signUpSuccess = function (data) {
@@ -87,64 +79,6 @@ const signOutFailure = function (error) {
   $('form').find('input:not([type="submit"])').val('')
 }
 
-const viewOrgInfo = function (data) {
-  const orgInfoData = orgInfoTemplate({ users: data })
-  // const showOrgHeaderData = showOrgHeader({ users: data })
-  // $('#header-h1').html(showOrgHeaderData)
-  $('.jump-ahead-slogan').hide()
-  $('#content').html(orgInfoData)
-  console.log('viewOrgInfo data is', data)
-  console.log('data.user.id is', data.user.id)
-  $('.showblogbutton').on('click', () => blogEvents.onShowBlogPosts(data))
-  $('.showblogbutton').on('click', () => console.log('button clicked'))
-  $('form').find('input:not([type="submit"])').val('')
-  return data
-}
-
-const showWebpageLinks = function (data) {
-  const webpageLinks = webpageLinksTemplate({ webpages: data.webpages })
-  $('#page-links').html(webpageLinks)
-  $('.individual-page-link').on('click', showWebpageByLink)
-}
-
-const showWebpageByLink = function (event) {
-  const id = $(event.target).data('id')
-  webpageApi.getWebpage(id)
-    .then((response) => {
-      console.log(response)
-      return response
-    }
-    )
-    .then((data) => {
-      if (store.user) {
-        if (store.user.id === store.viewed_user.user_id) {
-          console.log('store.user is', store.user)
-          console.log('store.viewed_user is', store.viewed_user)
-          webpagelink = showOnePageTemplateWithButtons({ webpage: data.webpage })
-        }
-      } else {
-        console.log('store.user is', store.user)
-        console.log('store.viewed_user is', store.viewed_user)
-        console.log('data is', data)
-        console.log('data.webpage.title is', data.webpage.title)
-        webpagelink = showOnePageTemplate({ webpage: data.webpage })
-      }
-      $('#content').html(webpagelink)
-    })
-    .then(() => $('#back-link').on('click', goBackToMain))
-}
-
-const goBackToMain = function () {
-  console.log('viewed_user.id is', store.viewed_user)
-  api.getUser(store.viewed_user.user_id)
-    .then(viewOrgInfo)
-    .then(() => {
-      return webpageApi.getOwnedWebpages(store.viewed_user.user_id)
-    })
-    .then(showWebpageLinks)
-    .catch(console.error)
-}
-
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -153,8 +87,5 @@ module.exports = {
   changePasswordFailure,
   signInFailure,
   signOutSuccess,
-  signOutFailure,
-  viewOrgInfo,
-  showWebpageLinks,
-  showWebpageByLink
+  signOutFailure
 }

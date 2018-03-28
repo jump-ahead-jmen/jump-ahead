@@ -1,8 +1,5 @@
 'use strict'
 
-// const store = require('../store')
-// above is for the token as well
-
 const createWebpageSuccess = function (data) {
   $('#create-webpage-modal').modal('hide')
   $('#message').text('Created webpage successfully!')
