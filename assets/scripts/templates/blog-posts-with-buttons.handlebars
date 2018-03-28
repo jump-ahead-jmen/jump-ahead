@@ -1,11 +1,15 @@
 {{#each blogPosts as |blogPost|}}
   <div data-id="{{blogPost.id}}">
-    <h1 class="resource-header">{{blogPost._owner.organization}}</h1>
-    <h1 class="resource-header">{{blogPost.title}}</h1>
+    <div class="blogborder">
+    <ul>
+    <li class="resource-header">{{blogPost._owner.organization}}</li>
+    <li class="resource-header">{{blogPost.title}}</li>
       <br />
-      <p class="resource-body">{{blogPost.body}}</p>
-      <p class="resource-body">{{blogPost.createdAt}}</p>
+      <li class="resource-body">{{blogPost.body}}</li>
+      <li class="resource-body">{{blogPost.createdAt}}</li>
       <button class="blogPost-update btn btn-sm btn-info" data-id={{blogPost.id}}>Update</button>
       <button class="blogPost-delete btn btn-sm btn-danger" data-id={{blogPost.id}}>Delete</button>
+    </ul>
+  </div>
   </div>
 {{/each}}
