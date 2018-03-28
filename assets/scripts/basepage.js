@@ -80,7 +80,8 @@ const goBackToMain = function () {
 const onShowBlogPosts = function (data) {
   // this next console log is showing an empty object
   console.log('onShowBlogPosts data is', data)
-  blogApi.getOwnedBlogposts(data.user.id)
+  console.log('store.viewed_user.user_id is', store.viewed_user.user_id)
+  blogApi.getOwnedBlogposts(store.viewed_user.user_id)
     // .then((response) => console.log('response is', response))
     .then(blogUi.showBlogPosts)
     .then(() => $('#back-link').on('click', goBackToMain))
