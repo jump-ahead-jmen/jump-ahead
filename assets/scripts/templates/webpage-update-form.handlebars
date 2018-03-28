@@ -1,14 +1,13 @@
-hello
 {{#each webpages as |webpage|}}
-<form id="update-webpage" class="border">
-  <fieldset>
-    <form id="update-webpage" class="border">
-      <input type="text" name="webpage[title]" value="{{webpage.title}}" placeholder="title" required>
-      <input name="webpage[id]" type="hidden" value="{{webpage.id}}">
-      <textarea class="form-control" id="update-webpage-body" name="webpage[body]" placeholder="Body" rows="3" required>{{webpage.body}}</textarea>
-      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#update-webpage-modal">Submit</button>
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    </form>
-  </fieldset>
-</form>
+  <form id="update-webpage" class="border">
+    <fieldset>
+      <form id="update-webpage" class="border">
+        <input type="text" name="webpage[title]" value="{{webpage.title}}" placeholder="title" required>
+        <input name="webpage[id]" type="hidden" value="{{webpage.id}}">
+        <textarea class="form-control" id="update-webpage-body" name="webpage[body]" placeholder="Body" rows="3" required>{{webpage.body}}</textarea>
+        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#update-webpage-modal">Submit</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </form>
+    </fieldset>
+  </form>
 {{/each}}

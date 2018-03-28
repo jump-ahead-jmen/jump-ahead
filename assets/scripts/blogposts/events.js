@@ -61,5 +61,6 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  onShowBlogPosts
+  onShowBlogPosts,
+  onBlogPostUpdate
 }

@@ -22,7 +22,10 @@ const blogPostIndex = function () {
 }
 
 const blogPostShow = function (data) {
-  const id = data.blogPost.id
+  id = data
+  if (data.blogPost) {
+    id = data.blogPost.id
+  }
   token = ''
   if (store.user) {
     token = store.user.token
