@@ -3,7 +3,6 @@
 const api = require('./api')
 const getFormFields = require('../../../lib/get-form-fields')
 const ui = require('./ui')
-const userApi = require('../users/api.js')
 
 const onBlogPostCreate = function () {
   event.preventDefault()
