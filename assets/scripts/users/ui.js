@@ -37,7 +37,6 @@ const signInSuccess = function (data) {
   $('.signed-in-buttons').show()
   $('.signed-out-buttons').hide()
   $('#message').text('Signed in Successfully!')
-  $('#message').css('background-color', 'green')
   $('form').find('input:not([type="submit"])').val('')
   console.log(data)
   // below is for the token
@@ -48,14 +47,12 @@ const signInSuccess = function (data) {
 const signInFailure = function (error) {
   console.log(error)
   $('#message').text('Error on signing in!')
-  $('#message').css('background-color', 'red')
   $('form').find('input:not([type="submit"])').val('')
   // $('#sign-in').val('')
 }
 
 const changePasswordSuccess = function (data) {
   $('#message').text('Change password Successfully!')
-  $('#message').css('background-color', 'green')
   $('form').find('input:not([type="submit"])').val('')
   // $('#sign-in').val('')
 }

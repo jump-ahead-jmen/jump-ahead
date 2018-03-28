@@ -6,20 +6,49 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   font-family: Georgia;
 }
 
-.signupcontent,
-.signincontent,
-.changepasswordcontent {
-  text-align: center;
+.jump-ahead-slogan {
+  margin: 5% 10% 2% 10%;
+}
+
+.signed-out-buttons {
+  margin: 2% 10%;
+}
+
+.btn {
+  display: block;
+}
+
+.dropdown,
+.drop-down-title {
+  margin: 1% 10%;
+}
+
+.user-dropdown {
+  margin: 1% 10%;
 }
 
 .otherforms,
 .signed-in-buttons {
   display: none;
+  margin: 2% 10%;
+}
+
+#message {
+  margin: 1% 10%;
+}
+
+.showblogbutton {
+  margin: 1% 10%;
 }
 
 .page-links {
   color: blue;
   text-decoration: underline;
+  margin: 40px auto;
+  width: 50%;
+  line-height: 1.6;
+  font-size: 18px;
+  padding: 0 10px;
 }
 
 .resource-header {
@@ -27,6 +56,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   font-weight: bold;
   margin: 40px auto;
   width: 50%;
+  font-size: 32px;
   // -webkit-margin-before: 1em;
   // -webkit-margin-after: 1em;
   // -webkit-margin-start: 0px;
