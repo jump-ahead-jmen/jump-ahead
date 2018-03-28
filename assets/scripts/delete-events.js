@@ -2,7 +2,7 @@
 
 const webpagesApi = require('./webpages/api.js')
 // const webpagesEvents = require('./webpages/events.js')
-// const webpagesUI = require('./webpages/ui.js')
+const webpagesUI = require('./webpages/ui.js')
 const blogPostsApi = require('./blogposts/api.js')
 // const blogPostsUI = require('./blogPosts/ui.js')
 
@@ -17,6 +17,8 @@ const identifyWebPageToRemove = function (event) {
 
 const removeWebPage = function (event) {
   webpagesApi.deleteWebpage(deletionID)
+    .then(webpagesUI.deleteWebpageSuccess)
+    .catch(webpagesUI.deleteWebpageFailure)
   // .then(webpagesEvents.onWebpageMaintainedIndex)
   // .catch(webpagesUI.webpageDeleteFailure)
 }
