@@ -77,10 +77,12 @@ const blogPostDeleteFailure = function (error) {
 }
 
 const showBlogPosts = function (data) {
-  if (store.user.id === store.viewed_user.user_id) {
-    console.log('store.user is', store.user)
-    console.log('store.viewed_user is', store.viewed_user)
-    blogInfoData = blogInfoTemplateWithButtons({ blogPosts: data.blogPosts })
+  if (store.user) {
+    if (store.user.id === store.viewed_user.user_id) {
+      console.log('store.user is', store.user)
+      console.log('store.viewed_user is', store.viewed_user)
+      blogInfoData = blogInfoTemplateWithButtons({ blogPosts: data.blogPosts })
+    }
   } else {
     console.log('store.user is', store.user)
     console.log('store.viewed_user is', store.viewed_user)

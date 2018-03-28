@@ -5,8 +5,10 @@ const orgInfoTemplate = require('../templates/show-base-page.handlebars')
 const webpageLinksTemplate = require('../templates/page-links.handlebars')
 const blogEvents = require('../blogposts/events.js')
 const showOnePageTemplate = require('../templates/show-one-page.handlebars')
+const showOnePageTemplateWithButtons = require('../templates/show-one-page-with-buttons.handlebars')
 const webpageApi = require('../webpages/api.js')
 const api = require('./api.js')
+let webpagelink
 // above is for the token as well
 
 const signUpSuccess = function (data) {
@@ -106,8 +108,20 @@ const showWebpageByLink = function (event) {
     }
     )
     .then((data) => {
-      const webpageLink = showOnePageTemplate({ webpage: data.webpage })
-      $('#content').html(webpageLink)
+      if (store.user) {
+        if (store.user.id === store.viewed_user.user_id) {
+          console.log('store.user is', store.user)
+          console.log('store.viewed_user is', store.viewed_user)
+          webpagelink = showOnePageTemplateWithButtons({ blogPosts: data.webpage })
+        }
+      } else {
+        console.log('store.user is', store.user)
+        console.log('store.viewed_user is', store.viewed_user)
+        console.log('data is', data)
+        console.log('data.webpage.title is', data.webpage.title)
+        webpagelink = showOnePageTemplate({ webpage: data.webpage })
+      }
+      $('#content').html(webpagelink)
     })
     .then(() => $('#back-link').on('click', goBackToMain))
 }
