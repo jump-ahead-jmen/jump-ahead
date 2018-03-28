@@ -6,17 +6,25 @@ const webpageLinksTemplate = require('../templates/page-links.handlebars')
 const blogEvents = require('../blogposts/events.js')
 const showOneLinkTemplate = require('../templates/show-one-link.handlebars')
 const webpageApi = require('../webpages/api.js')
+const api = require('./api.js')
 // above is for the token as well
 
 const signUpSuccess = function (data) {
-  $('#message').text('Signed up Successfully!')
+  $('#message').text('Signed up successfully')
   $('#message').css('background-color', 'green')
+  const myNewData = { // made a new const called myNewData
+    'credentials': { // used credentials from the shell files
+      'email': $('#username-id-create').val(), // calls value of username-id-create and stores it in email
+      'password': $('#password-id-create').val() // val calls password id create  and stores it in password
+    }
+  }
+  api.signIn(myNewData) // scriptsApi calls api.js ... then calls the sign in function inside of the file.... then uses the myNewData const as the parameter
+    .then(signInSuccess) // .then will use the sign in success function
+    .catch(signInFailure) // .catch will be the failure part !!
+
   $('form').find('input:not([type="submit"])').val('')
-
   userDropdown()
-  console.log(data)
 }
-
 const signUpFailure = function (error) {
   console.log(error)
   $('#message').text('Error on signing up!')
