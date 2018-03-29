@@ -33,6 +33,7 @@ const onUpdateWebpage = function (event) {
   const data = getFormFields(event.target)
   api.updateWebpage(data)
     .then(ui.updateWebpageSuccess)
+    .then((data) => api.getWebpage(data.webpage.id))
     .catch(ui.updateWebpageFailure)
 }
 
