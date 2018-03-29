@@ -9,6 +9,7 @@ const blogPostCreateSuccess = function (data) {
   $('#message').text('Created blog post successfully!')
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#content').empty()
   $('#message').delay(3000).slideToggle()
 }
 

@@ -7,6 +7,7 @@ const createWebpageSuccess = function (data) {
   $('#message').text('Created webpage successfully!')
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#content').empty()
   $('#message').delay(3000).slideToggle()
 }
 
