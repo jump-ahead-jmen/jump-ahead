@@ -20,7 +20,6 @@ const onGetWebpages = function (event) {
 const onGetWebpage = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   const webpage = data.webpage
   // console.log(event)
   api.getWebpage(webpage.id)
@@ -31,11 +30,22 @@ const onGetWebpage = function (event) {
 const onUpdateWebpage = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  console.log('events onupdate data is', data)
   api.updateWebpage(data)
-    .then(ui.updateWebpageSuccess)
+    .then(() => ui.updateWebpageSuccess(data))
     .then((data) => api.getWebpage(data.webpage.id))
     .catch(ui.updateWebpageFailure)
 }
+
+// const onBlogPostUpdate = function () {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   api.blogPostUpdate(data)
+//     .then(() => ui.blogPostUpdateSuccess())
+//     // .then(() => api.blogPostShow())
+//     // .then(ui.blogPostShowSuccess)
+//     .catch(ui.blogPostUpdateFailure)
+// }
 
 const onDeleteWebpage = function (event) {
   event.preventDefault()

@@ -9,7 +9,6 @@ const viewMain = require('../basepage.js')
 
 const onSignUp = function () {
   event.preventDefault()
-  console.log('on sign up function works')
   // event.target is the same as this in the parameter below
   const data = getFormFields(this)
   api.signUp(data)
@@ -48,9 +47,6 @@ const onViewOrgInfo = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   store.viewed_user = data.users
-  console.log('viewed user is', store.viewed_user)
-  console.log('viewed user id is', store.viewed_user.user_id)
-  console.log('current user is', store.user)
   api.getUser(data.users.user_id)
     .then(viewMain.viewOrgInfo)
     .then(() => {

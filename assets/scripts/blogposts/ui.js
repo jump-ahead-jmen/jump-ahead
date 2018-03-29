@@ -10,7 +10,6 @@ const blogPostCreateSuccess = function (data) {
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
   $('#message').delay(3000).slideToggle()
-  console.log(data)
 }
 
 const blogPostCreateFailure = function (error) {
@@ -25,7 +24,6 @@ const blogPostCreateFailure = function (error) {
 const blogPostShowSuccess = function (data) {
   $('#message').text('Showed Blog Post successfully')
   $('#message').css('background-color', 'green')
-  console.log(data.blogPost)
   $('#content').html(data.blogPost.title + ' ' + data.blogPost.body)
   $('form').find('input:not([type="submit"])').val('')
 }
@@ -41,7 +39,6 @@ const blogPostIndexSuccess = function (data) {
   $('#message').text('Indexed Blog Posts successfully')
   $('#message').css('background-color', 'green')
   $('form').find('input:not([type="submit"])').val('')
-  console.log(data)
   $('#content').text(data)
 }
 
@@ -59,16 +56,15 @@ const blogPostUpdateSuccess = function (data) {
   console.log('boogity')
   $('form').find('input:not([type="submit"])').val('')
   $('#message').delay(3000).slideToggle()
-  console.log(data)
+  $('#content').empty()
 }
 
-const blogPostUpdateFailure = function (error) {
+const blogPostUpdateFailure = function () {
   $('#update-blogPost-modal').modal('hide')
   $('#message').text('Error on creating a blog post!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
   $('#message').delay(3000).slideToggle()
-  console.error(error)
 }
 
 const blogPostDeleteSuccess = function (data) {
@@ -76,7 +72,6 @@ const blogPostDeleteSuccess = function (data) {
   $('#message').text('Deleted blog post successfully!')
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
-  console.log(data)
   $('#message').delay(3000).slideToggle()
 }
 
@@ -91,8 +86,6 @@ const blogPostDeleteFailure = function (error) {
 const showBlogPosts = function (data) {
   if (store.user) {
     if (store.user.id === store.viewed_user.user_id) {
-      console.log('store.user(logged in user) === store.viewed_user is', store.user)
-      console.log('so store.viewed_user is', store.viewed_user)
       blogInfoData = blogInfoTemplateWithButtons({ blogPosts: data.blogPosts,
         organization: store.viewed_user.organization})
     } else {
@@ -100,15 +93,11 @@ const showBlogPosts = function (data) {
         organization: store.viewed_user.organization})
     }
   } else {
-    console.log('store.user is', store.user)
-    console.log('store.viewed_user in showBlogPosts because store.user != viewed user is', store.viewed_user)
-    console.log('store.viewed_user.organization in showBlogPosts because store.user != viewed user is', store.viewed_user.organization)
     blogInfoData = blogInfoTemplate({ blogPosts: data.blogPosts,
       organization: store.viewed_user.organization})
   }
   $('form').find('input:not([type="submit"])').val('')
   $('#content').html(blogInfoData)
-  console.log('end of showBlogPosts data is', data)
   return data
 }
 

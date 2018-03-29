@@ -6,7 +6,6 @@ const store = require('../store')
 let token
 
 const signUp = function (data) {
-  console.log('api.signup being triggered')
   return $.ajax({
     url: config.apiUrl + '/sign-up/',
     method: 'POST',

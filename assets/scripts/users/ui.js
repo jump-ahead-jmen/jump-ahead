@@ -23,7 +23,7 @@ const signUpSuccess = function (data) {
   userDropdown()
 }
 const signUpFailure = function (error) {
-  console.log(error)
+  store.error = error
   $('#sign-up-modal').modal('hide')
   $('#message').text('Error on signing up!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
@@ -37,14 +37,13 @@ const signInSuccess = function (data) {
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
   $('#message').delay(3000).slideToggle()
-  console.log(data)
   // below is for the token
   store.user = data.user
   // $('#sign-in').val('')
 }
 
 const signInFailure = function (error) {
-  console.log(error)
+  store.error = error
   $('#message').text('Error on signing in!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
@@ -61,7 +60,7 @@ const changePasswordSuccess = function (data) {
 }
 
 const changePasswordFailure = function (error) {
-  console.log(error)
+  store.error = error
   $('#message').text('Error on changing password!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
@@ -76,11 +75,12 @@ const signOutSuccess = function (data) {
   $('.signed-out-buttons').show()
   $('.jump-ahead-slogan').show()
   $('#message').delay(3000).slideToggle()
+  $('#content').empty()
   store.user = null
 }
 
 const signOutFailure = function (error) {
-  console.log(error)
+  store.error = error
   $('#message').text('Error on signing out!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
