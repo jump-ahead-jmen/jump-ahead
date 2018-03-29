@@ -32,10 +32,19 @@ const onUpdateWebpage = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.updateWebpage(data)
-    .then(ui.updateWebpageSuccess)
-    .then((data) => api.getWebpage(data.webpage.id))
+    .then(() => ui.updateWebpageSuccess())
     .catch(ui.updateWebpageFailure)
 }
+
+// const onBlogPostUpdate = function () {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   api.blogPostUpdate(data)
+//     .then(() => ui.blogPostUpdateSuccess())
+//     // .then(() => api.blogPostShow())
+//     // .then(ui.blogPostShowSuccess)
+//     .catch(ui.blogPostUpdateFailure)
+// }
 
 const onDeleteWebpage = function (event) {
   event.preventDefault()

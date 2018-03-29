@@ -31,9 +31,12 @@ const onBlogPostUpdate = function () {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.blogPostUpdate(data)
-    .then(ui.blogPostUpdateSuccess)
+    .then(() => ui.blogPostUpdateSuccess())
+    // .then(() => api.blogPostShow())
+    // .then(ui.blogPostShowSuccess)
     .catch(ui.blogPostUpdateFailure)
 }
+
 const onBlogPostDelete = function () {
   event.preventDefault()
   const data = getFormFields(event.target)
