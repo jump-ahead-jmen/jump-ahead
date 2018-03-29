@@ -11,7 +11,6 @@ let deletionID
 
 const identifyWebPageToRemove = function (event) {
   event.preventDefault()
-  console.log('clicked')
   deletionID = event.target.dataset.id
   $('#confirmDeleteWebpageModal').modal('show')
 }
@@ -27,11 +26,8 @@ const removeWebPage = function (event) {
 
 const identifyBlogPostToRemove = function (event) {
   event.preventDefault()
-  console.log('clicked')
-  console.log('event.target.dataset.id is,', event.target.dataset.id)
   // currentEvent = event
   deletionID = event.target.dataset.id
-  console.log(deletionID)
   $('#confirmDeleteBlogPostModal').modal('show')
 }
 

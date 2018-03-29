@@ -6,12 +6,10 @@ const createWebpageSuccess = function (data) {
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
   $('#message').delay(3000).slideToggle()
-  console.log(data)
-  console.log('ui create wp works')
 }
 
 const createWebpageFailure = function (error) {
-  console.log(error)
+  store.error = error
   $('#create-webpage-modal').modal('hide')
   $('#message').text('Error on creating a webpage!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
@@ -22,12 +20,10 @@ const getWebpagesSuccess = function (data) {
   $('#message').text('Retrieved webpages successfully!')
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
-  console.log(data)
-  console.log('this ui works')
 }
 
 const getWebpagesFailure = function (error) {
-  console.log(error)
+  store.error = error
   $('#message').text('Error on retrieving webpages!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
@@ -37,11 +33,10 @@ const getWebpageSuccess = function (data) {
   $('#message').text('Retrieved webpage successfully!')
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
-  console.log('this ui works')
 }
 
-const getWebpageFailure = function (error) {
-  console.log(error)
+const getWebpageFailure = function () {
+  // store.error = error
   $('#message').text('Error on retrieving webpage!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
@@ -57,8 +52,8 @@ const updateWebpageSuccess = function (data) {
   return data
 }
 
-const updateWebpageFailure = function (error) {
-  console.log(error)
+const updateWebpageFailure = function () {
+  // console.log(error)
   $('#update-webpage-modal').modal('hide')
   $('#message').text('Error on updating webpage!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
@@ -72,11 +67,10 @@ const deleteWebpageSuccess = function (data) {
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
   $('#message').delay(3000).slideToggle()
-  console.log('this ui works')
 }
 
-const deleteWebpageFailure = function (error) {
-  console.log(error)
+const deleteWebpageFailure = function () {
+  // console.log(error)
   $('#confirmDeleteWebpageModal').modal('hide')
   $('#message').text('Error on deleting webpage!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
