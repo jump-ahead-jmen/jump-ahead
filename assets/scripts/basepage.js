@@ -7,7 +7,6 @@ const showOnePageTemplateWithButtons = require('./templates/show-one-page-with-b
 const webpageLinksTemplate = require('./templates/page-links.handlebars')
 const store = require('./store.js')
 const userApi = require('./users/api.js')
-const viewMain = require('./basepage.js')
 let webpage
 
 const viewOrgInfo = function (data) {
@@ -66,7 +65,6 @@ const goBackToMain = function () {
     .then(viewOrgInfo)
     .then(response => {
       console.log('response is', response)
-      console.log('viewMain is', viewMain)
       console.log('userApi is', userApi)
       return response
     })
