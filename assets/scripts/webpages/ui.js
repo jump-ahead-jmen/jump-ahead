@@ -54,6 +54,7 @@ const updateWebpageSuccess = function (data) {
   $('form').find('input:not([type="submit"])').val('')
   $('#message').delay(3000).slideToggle()
   $('#content').empty()
+  return data
 }
 
 const updateWebpageFailure = function (error) {
