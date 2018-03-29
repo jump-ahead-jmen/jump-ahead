@@ -4,6 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 let token
+let id
 
 const blogPostIndex = function () {
   token = ''
@@ -21,7 +22,10 @@ const blogPostIndex = function () {
 }
 
 const blogPostShow = function (data) {
-  const id = data.blogPost.id
+  id = data
+  if (data.blogPost) {
+    id = data.blogPost.id
+  }
   token = ''
   if (store.user) {
     token = store.user.token
@@ -41,8 +45,31 @@ const blogPostShow = function (data) {
   })
 }
 
+const getOwnedBlogposts = function (data) {
+  token = ''
+  if (store.user) {
+    token = store.user.token
+  }
+  // if (data.webpage) {
+  //   id = data.webpage.id
+  // } else {
+  //   id = data
+  // }
+  return $.ajax({
+    url: config.apiUrl + '/ownedblogposts/' + data,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + token
+    }
+  })
+}
+
 const blogPostDelete = function (data) {
-  const id = data.blogPost.id
+  id = data
+  if (data.blogPost) {
+    id = data.blogPost.id
+  }
   // if (data.blogPost) {
   //   id = data.blogPost.id
   // } else {
@@ -86,5 +113,6 @@ module.exports = {
   blogPostShow,
   blogPostDelete,
   blogPostCreate,
-  blogPostUpdate
+  blogPostUpdate,
+  getOwnedBlogposts
 }

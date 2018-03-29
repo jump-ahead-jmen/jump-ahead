@@ -3,8 +3,9 @@
 const config = require('../config.js')
 const store = require('../store')
 
+let token
+
 const signUp = function (data) {
-  console.log('api.signup being triggered')
   return $.ajax({
     url: config.apiUrl + '/sign-up/',
     method: 'POST',
@@ -49,9 +50,46 @@ const signOut = function (data) {
   })
 }
 
+const userIndex = function () {
+  token = ''
+  if (store.user) {
+    token = store.user.token
+  }
+  return $.ajax({
+    url: config.apiUrl + '/users',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + token
+    }
+  })
+}
+
+const getUser = function (data) {
+  token = ''
+  if (store.user) {
+    token = store.user.token
+  }
+  // if (data.webpage) {
+  //   id = data.webpage.id
+  // } else {
+  //   id = data
+  // }
+  return $.ajax({
+    url: config.apiUrl + '/users/' + data,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  userIndex,
+  getUser
 }

@@ -1,2 +1,120 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+.container-fluid {
+  background-color: #EEEEEE;
+  font-family: Georgia;
+}
+
+.jump-ahead-slogan {
+  margin: 5% 10% 2% 10%;
+}
+
+#header-h1 {
+  font-weight: bold;
+}
+
+.signed-out-buttons {
+  margin: 2% 10%;
+}
+
+.btn {
+  display: block;
+}
+
+.dropdown,
+.drop-down-title {
+  margin: 1% 10%;
+}
+
+.user-dropdown {
+  margin: 1% 10%;
+}
+
+.otherforms,
+.signed-in-buttons {
+  display: none;
+  margin: 2% 10%;
+}
+
+.signed-in-buttons .btn,
+.signed-in-buttons form {
+  display: inline;
+}
+
+#message {
+  display: none;
+  margin: 1% 10%;
+}
+
+.showblogbutton {
+  margin: 1% 10%;
+}
+
+.page-links {
+  color: blue;
+  text-decoration: underline;
+  margin: 40px auto;
+  width: 50%;
+  line-height: 1.6;
+  font-size: 18px;
+  padding: 0 10px;
+}
+
+.resource-header {
+  display: block;
+  font-weight: bold;
+  margin: 40px auto;
+  width: 50%;
+  font-size: 32px;
+  // -webkit-margin-before: 1em;
+  // -webkit-margin-after: 1em;
+  // -webkit-margin-start: 0px;
+  // -webkit-margin-end: 0px;
+}
+
+.resource-body {
+  list-style: none;
+  margin: 40px auto;
+  width: 50%;
+  line-height: 1.6;
+  font-size: 18px;
+  color: #444;
+  padding: 0 10px;
+}
+
+.blogborder {
+    list-style: none;
+    width: 60%;
+    border: 10px solid black;
+    padding: 25px;
+    margin: 25px;
+    border-radius: 15px;
+}
+
+.footer {
+  clear: top;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #5bc0de;
+  opacity: 0.6;
+  text-align: center;
+}
+
+.blogpost-btn {
+  margin: 5% 0% 2% 25%;
+  display: inline;
+}
+
+.footer-message {
+  font-weight: bold;
+  margin: 1% auto;
+  text-align: center;
+}
+
+.bottom-clear {
+  padding: 40px;
+}

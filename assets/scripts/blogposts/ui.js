@@ -1,23 +1,30 @@
 'use strict'
+const blogInfoTemplate = require('../templates/blog-posts.handlebars')
+const blogInfoTemplateWithButtons = require('../templates/blog-posts-with-buttons.handlebars')
+const store = require('../store.js')
+let blogInfoData
 
 const blogPostCreateSuccess = function (data) {
-  $('#message').text('Created Blog Post successfully')
-  $('#message').css('background-color', 'green')
+  $('#create-blogPost-modal').modal('hide')
+  $('#message').text('Created blog post successfully!')
+  $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
-  console.log(data)
+  $('#content').empty()
+  $('#message').delay(3000).slideToggle()
 }
 
 const blogPostCreateFailure = function (error) {
-  $('#message').text('Error on creating blog post')
-  $('#message').css('background-color', 'red')
+  $('#create-blogPost-modal').modal('hide')
+  $('#message').text('Error on creating a blog post!')
+  $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
   console.error(error)
 }
 
 const blogPostShowSuccess = function (data) {
   $('#message').text('Showed Blog Post successfully')
   $('#message').css('background-color', 'green')
-  console.log(data.blogPost)
   $('#content').html(data.blogPost.title + ' ' + data.blogPost.body)
   $('form').find('input:not([type="submit"])').val('')
 }
@@ -33,7 +40,6 @@ const blogPostIndexSuccess = function (data) {
   $('#message').text('Indexed Blog Posts successfully')
   $('#message').css('background-color', 'green')
   $('form').find('input:not([type="submit"])').val('')
-  console.log(data)
   $('#content').text(data)
 }
 
@@ -45,31 +51,54 @@ const blogPostIndexFailure = function (error) {
 }
 
 const blogPostUpdateSuccess = function (data) {
-  $('#message').text('Updated Blog Post successfully')
-  $('#message').css('background-color', 'green')
+  $('#update-blogPost-modal').modal('hide')
+  $('#message').text('Updated blog post successfully!')
+  $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
-  console.log(data)
+  $('#message').delay(3000).slideToggle()
+  $('#content').empty()
 }
 
-const blogPostUpdateFailure = function (error) {
-  $('#message').text('Error on updating blog post')
-  $('#message').css('background-color', 'red')
+const blogPostUpdateFailure = function () {
+  $('#update-blogPost-modal').modal('hide')
+  $('#message').text('Error on creating a blog post!')
+  $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
-  console.error(error)
+  $('#message').delay(3000).slideToggle()
 }
 
 const blogPostDeleteSuccess = function (data) {
-  $('#message').text('Deleted Blog Post successfully')
-  $('#message').css('background-color', 'green')
+  $('#confirmDeleteBlogPostModal').modal('hide')
+  $('#message').text('Deleted blog post successfully!')
+  $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
-  console.log(data)
+  $('#message').delay(3000).slideToggle()
 }
 
 const blogPostDeleteFailure = function (error) {
-  $('#message').text('Error on deleting blog post')
-  $('#message').css('background-color', 'red')
+  $('#confirmDeleteBlogPostModal').modal('hide')
+  $('#message').text('Error on deleting webpage!')
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
   console.error(error)
+}
+
+const showBlogPosts = function (data) {
+  if (store.user) {
+    if (store.user.id === store.viewed_user.user_id) {
+      blogInfoData = blogInfoTemplateWithButtons({ blogPosts: data.blogPosts,
+        organization: store.viewed_user.organization})
+    } else {
+      blogInfoData = blogInfoTemplate({ blogPosts: data.blogPosts,
+        organization: store.viewed_user.organization})
+    }
+  } else {
+    blogInfoData = blogInfoTemplate({ blogPosts: data.blogPosts,
+      organization: store.viewed_user.organization})
+  }
+  $('form').find('input:not([type="submit"])').val('')
+  $('#content').html(blogInfoData)
+  return data
 }
 
 module.exports = {
@@ -82,5 +111,6 @@ module.exports = {
   blogPostUpdateSuccess,
   blogPostUpdateFailure,
   blogPostDeleteSuccess,
-  blogPostDeleteFailure
+  blogPostDeleteFailure,
+  showBlogPosts
 }

@@ -1,0 +1,21 @@
+{{#each blogPosts as |blogPost|}}
+  <div data-id="{{blogPost.id}}">
+    <div class="blogborder">
+      <ul>
+      <li class="resource-header">{{blogPost._owner.organization}}</li>
+      <li class="resource-header">{{blogPost.title}}</li>
+        <br />
+        <li class="resource-body">{{blogPost.body}}</li>
+        <li class="resource-body">{{blogPost.createdAt}}</li>
+        <button class="blogPost-update blogpost-btn btn btn-sm btn-info" data-id={{blogPost.id}}>Update</button>
+        <!-- <br /> -->
+        <button class="blogPost-delete blogpost-btn btn btn-sm btn-danger" data-id={{blogPost.id}}>Delete</button>
+      </ul>
+    </div>
+  </div>
+  {{else}}
+
+  <h2 class="resource-body">{{organization}} has not posted any blog entries yet</h2>
+{{/each}}
+
+<span class="page-links" id="back-link">Return to Main</span>

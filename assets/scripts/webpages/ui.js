@@ -1,77 +1,84 @@
 'use strict'
 
-// const store = require('../store')
-// above is for the token as well
+const store = require('../store.js')
 
 const createWebpageSuccess = function (data) {
-  $('#message').text('Webpage created Successfully!')
-  $('#message').css('background-color', 'green')
+  $('#create-webpage-modal').modal('hide')
+  $('#message').text('Created webpage successfully!')
+  $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
-  console.log(data)
-  console.log('ui create wp works')
+  $('#content').empty()
+  $('#message').delay(3000).slideToggle()
 }
 
 const createWebpageFailure = function (error) {
-  console.log(error)
-  $('#message').text('Error on creating webpage!')
-  $('#message').css('background-color', 'red')
+  store.error = error
+  $('#create-webpage-modal').modal('hide')
+  $('#message').text('Error on creating a webpage!')
+  $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
 }
 const getWebpagesSuccess = function (data) {
-  $('#message').text('Retrieved pages Successfully!')
-  $('#message').css('background-color', 'green')
+  $('#message').text('Retrieved webpages successfully!')
+  $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
-  console.log(data)
-  console.log('this ui works')
 }
 
 const getWebpagesFailure = function (error) {
-  console.log(error)
-  $('#message').text('Error on retrieving pages!')
-  $('#message').css('background-color', 'red')
+  store.error = error
+  $('#message').text('Error on retrieving webpages!')
+  $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
 }
 
 const getWebpageSuccess = function (data) {
-  $('#message').text('brought back 1 page Successfully!')
-  $('#message').css('background-color', 'green')
+  $('#message').text('Retrieved webpage successfully!')
+  $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
-  console.log('this ui works')
 }
 
-const getWebpageFailure = function (error) {
-  console.log(error)
-  $('#message').text('Error on getting a webpage!')
-  $('#message').css('background-color', 'red')
+const getWebpageFailure = function () {
+  // store.error = error
+  $('#message').text('Error on retrieving webpage!')
+  $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
 }
 
 const updateWebpageSuccess = function (data) {
-  $('#message').text('Updated Successfully!')
-  $('#message').css('background-color', 'green')
+  $('#update-webpage-modal').modal('hide')
+  $('#message').text('Updated webpage successfully!')
+  $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
-  console.log('this ui works')
+  $('#message').delay(3000).slideToggle()
+  $('#content').empty()
+  return data
 }
 
-const updateWebpageFailure = function (error) {
-  console.log(error)
-  $('#message').text('Error on updating!')
-  $('#message').css('background-color', 'red')
+const updateWebpageFailure = function () {
+  // console.log(error)
+  $('#update-webpage-modal').modal('hide')
+  $('#message').text('Error on updating webpage!')
+  $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
 }
 
 const deleteWebpageSuccess = function (data) {
-  $('#message').text('Deleted Successfully!')
-  $('#message').css('background-color', 'green')
+  $('#confirmDeleteWebpageModal').modal('hide')
+  $('#message').text('Deleted webpage successfully!')
+  $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
-  console.log('this ui works')
+  $('#message').delay(3000).slideToggle()
 }
 
-const deleteWebpageFailure = function (error) {
-  console.log(error)
-  $('#message').text('Error on deleting!')
-  $('#message').css('background-color', 'red')
+const deleteWebpageFailure = function () {
+  // console.log(error)
+  $('#confirmDeleteWebpageModal').modal('hide')
+  $('#message').text('Error on deleting webpage!')
+  $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
+  $('#message').delay(3000).slideToggle()
 }
 
 module.exports = {
