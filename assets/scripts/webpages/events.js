@@ -33,11 +33,20 @@ const onUpdateWebpage = function (event) {
   const data = getFormFields(event.target)
   console.log('events onupdate data is', data)
   api.updateWebpage(data)
-    .then((response) => console.log('response is', response))
     .then(() => ui.updateWebpageSuccess(data))
     .then((data) => api.getWebpage(data.webpage.id))
     .catch(ui.updateWebpageFailure)
 }
+
+// const onBlogPostUpdate = function () {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   api.blogPostUpdate(data)
+//     .then(() => ui.blogPostUpdateSuccess())
+//     // .then(() => api.blogPostShow())
+//     // .then(ui.blogPostShowSuccess)
+//     .catch(ui.blogPostUpdateFailure)
+// }
 
 const onDeleteWebpage = function (event) {
   event.preventDefault()
