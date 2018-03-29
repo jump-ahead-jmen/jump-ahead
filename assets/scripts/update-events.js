@@ -14,7 +14,6 @@ let updateID
 
 const identifyWebpageToUpdate = function (event) {
   event.preventDefault()
-  console.log('clicked')
   $('#update-webpage-modal').modal('show')
   updateID = event.target.dataset.id
   webpagesApi.getWebpage(updateID)
@@ -24,7 +23,6 @@ const identifyWebpageToUpdate = function (event) {
 
 const identifyBlogPostToUpdate = function (event) {
   event.preventDefault()
-  console.log('clicked')
   $('#update-blogPost-modal').modal('show')
   updateID = event.target.dataset.id
   blogPostsApi.blogPostShow(updateID)
@@ -40,8 +38,6 @@ const populateWebpageUpdateForm = function (response) {
 
 const populateBlogPostUpdateForm = function (response) {
   const updateBlogPostsHtml = updateBlogPostForm({ blogPosts: response })
-  console.log(blogPostsEvents.onBlogPostUpdate)
-  console.log(updateBlogPostsHtml)
   $('#update-blogpost-span').html(updateBlogPostsHtml)
   $('#update-blogPost').on('submit', blogPostsEvents.onBlogPostUpdate)
 }

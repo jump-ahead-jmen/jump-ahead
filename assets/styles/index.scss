@@ -10,6 +10,10 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   margin: 5% 10% 2% 10%;
 }
 
+#header-h1 {
+  font-weight: bold;
+}
+
 .signed-out-buttons {
   margin: 2% 10%;
 }
@@ -98,6 +102,11 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   background-color: #5bc0de;
   opacity: 0.6;
   text-align: center;
+}
+
+.blogpost-btn {
+  margin: 5% 0% 2% 25%;
+  display: inline;
 }
 
 .footer-message {

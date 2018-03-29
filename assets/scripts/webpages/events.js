@@ -20,7 +20,6 @@ const onGetWebpages = function (event) {
 const onGetWebpage = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   const webpage = data.webpage
   // console.log(event)
   api.getWebpage(webpage.id)
