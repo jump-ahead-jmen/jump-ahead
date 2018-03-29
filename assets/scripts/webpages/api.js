@@ -88,6 +88,7 @@ const createWebpage = function (data) {
 }
 
 const updateWebpage = function (data) {
+  console.log('api updatewp data is', data)
   return $.ajax({
     url: config.apiUrl + '/webpages/' + data.webpage.id,
     method: 'PATCH',
