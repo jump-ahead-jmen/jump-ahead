@@ -53,7 +53,6 @@ const blogPostUpdateSuccess = function (data) {
   $('#update-blogPost-modal').modal('hide')
   $('#message').text('Updated blog post successfully!')
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
-  console.log('boogity')
   $('form').find('input:not([type="submit"])').val('')
   $('#message').delay(3000).slideToggle()
   $('#content').empty()
