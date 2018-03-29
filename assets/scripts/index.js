@@ -15,6 +15,8 @@ $(() => {
   blogPostEvents.addHandlers()
   deleteEvents.addHandlers()
   updateEvents.addHandlers()
+  // $('.modal').on('hidden.bs.modal', () => $('form').find('input:not([type="submit"])').val(''))
+  // $('.modal').on('hidden.bs.modal', () => $('textarea').(''))
 })
 
 // use require with a reference to bundle the file and use it in this file
