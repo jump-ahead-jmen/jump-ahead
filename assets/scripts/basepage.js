@@ -44,6 +44,9 @@ const showWebpageByLink = function (event) {
           console.log('store.viewed_user is', store.viewed_user)
           webpage = showOnePageTemplateWithButtons({ webpage: data.webpage,
             organization: store.viewed_user.organization})
+        } else {
+          webpage = showOnePageTemplate({ webpage: data.webpage,
+            organization: store.viewed_user.organization})
         }
       } else {
         console.log('store.user is', store.user)
