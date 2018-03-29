@@ -1,5 +1,7 @@
 'use strict'
 
+const store = require('../store.js')
+
 const createWebpageSuccess = function (data) {
   $('#create-webpage-modal').modal('hide')
   $('#message').text('Created webpage successfully!')

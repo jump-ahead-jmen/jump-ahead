@@ -2,7 +2,6 @@
 const blogInfoTemplate = require('../templates/blog-posts.handlebars')
 const blogInfoTemplateWithButtons = require('../templates/blog-posts-with-buttons.handlebars')
 const store = require('../store.js')
-const api = require('./api')
 let blogInfoData
 
 const blogPostCreateSuccess = function (data) {
