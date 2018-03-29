@@ -75,6 +75,7 @@ const signOutSuccess = function (data) {
   $('.signed-out-buttons').show()
   $('.jump-ahead-slogan').show()
   $('#message').delay(3000).slideToggle()
+  $('#content').empty()
   store.user = null
 }
 
