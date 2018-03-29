@@ -63,7 +63,6 @@ const goBackToMain = function () {
 }
 
 const onShowBlogPosts = function (data) {
-  // this next console log is showing an empty object
   blogApi.getOwnedBlogposts(data.user.id)
     // .then((response) => console.log('response is', response))
     .then(blogUi.showBlogPosts)
