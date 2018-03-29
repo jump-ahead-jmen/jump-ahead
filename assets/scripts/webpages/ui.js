@@ -53,7 +53,7 @@ const updateWebpageSuccess = function (data) {
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
   $('#message').delay(3000).slideToggle()
-  console.log('this ui works')
+  console.log('updateWebpageSuccess data is', data)
   return data
 }
 
