@@ -2,6 +2,7 @@
 const blogInfoTemplate = require('../templates/blog-posts.handlebars')
 const blogInfoTemplateWithButtons = require('../templates/blog-posts-with-buttons.handlebars')
 const store = require('../store.js')
+const api = require('./api')
 let blogInfoData
 
 const blogPostCreateSuccess = function (data) {
@@ -55,15 +56,15 @@ const blogPostUpdateSuccess = function (data) {
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
   $('#message').delay(3000).slideToggle()
+  $('#content').empty()
 }
 
-const blogPostUpdateFailure = function (error) {
+const blogPostUpdateFailure = function () {
   $('#update-blogPost-modal').modal('hide')
   $('#message').text('Error on creating a blog post!')
   $('#message').removeClass('alert-success').addClass('alert-danger').show()
   $('form').find('input:not([type="submit"])').val('')
   $('#message').delay(3000).slideToggle()
-  console.error(error)
 }
 
 const blogPostDeleteSuccess = function (data) {

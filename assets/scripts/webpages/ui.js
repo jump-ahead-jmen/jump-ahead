@@ -48,6 +48,7 @@ const updateWebpageSuccess = function (data) {
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
   $('form').find('input:not([type="submit"])').val('')
   $('#message').delay(3000).slideToggle()
+  $('#content').empty()
   return data
 }
 
