@@ -4,28 +4,28 @@ const api = require('./api')
 const getFormFields = require('../../../lib/get-form-fields')
 const ui = require('./ui')
 
-const onBlogPostCreate = function () {
+const onBlogPostCreate = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.blogPostCreate(data)
     .then(ui.blogPostCreateSuccess)
     .catch(ui.blogPostCreateFailure)
 }
-const onBlogPostShow = function () {
+const onBlogPostShow = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.blogPostShow(data)
     .then(ui.blogPostShowSuccess)
     .catch(ui.blogPostShowFailure)
 }
-const onBlogPostIndex = function () {
+const onBlogPostIndex = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.blogPostIndex(data)
     .then(ui.blogPostIndexSuccess)
     .catch(ui.blogPostIndexFailure)
 }
-const onBlogPostUpdate = function () {
+const onBlogPostUpdate = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.blogPostUpdate(data)
@@ -35,7 +35,7 @@ const onBlogPostUpdate = function () {
     .catch(ui.blogPostUpdateFailure)
 }
 
-const onBlogPostDelete = function () {
+const onBlogPostDelete = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.blogPostDelete(data)
