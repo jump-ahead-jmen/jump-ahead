@@ -20,7 +20,6 @@ const viewOrgInfo = function (data) {
 
 const showWebpageLinks = function (data) {
   data.webpages.sort(compare)
-  console.log(data.webpages)
   const webpageLinks = webpageLinksTemplate({ webpages: data.webpages })
   $('#page-links').html(webpageLinks)
   $('.individual-page-link').on('click')
