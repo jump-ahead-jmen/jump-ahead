@@ -6,6 +6,7 @@ Wireframes: https://i.imgur.com/kwfQEaa.jpg
 User Stories:
 Deployed Website: https://jump-ahead-jmen.github.io/jump-ahead/
 Link to API repo: https://github.com/jump-ahead-jmen/jump-ahead-api
+Link to deployed API: https://jump-ahead-api.herokuapp.com/
 
 User Stories:
 As a user, I want to be able to log in and out of my account and edit my own resources.
