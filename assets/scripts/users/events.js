@@ -7,7 +7,7 @@ const wpApi = require('../webpages/api.js')
 const store = require('../store.js')
 const viewMain = require('../basepage.js')
 
-const onSignUp = function () {
+const onSignUp = function (event) {
   event.preventDefault()
   // event.target is the same as this in the parameter below
   const data = getFormFields(this)
@@ -16,7 +16,7 @@ const onSignUp = function () {
     .catch(ui.signUpFailure)
 }
 
-const onSignIn = function () {
+const onSignIn = function (event) {
   event.preventDefault()
   // event.target is the same as this in the parameter below
   const data = getFormFields(this)

@@ -2,6 +2,7 @@
 const blogInfoTemplate = require('../templates/blog-posts.handlebars')
 const blogInfoTemplateWithButtons = require('../templates/blog-posts-with-buttons.handlebars')
 const store = require('../store.js')
+const compare = require('../customsorterforposts.js')
 let blogInfoData
 
 const blogPostCreateSuccess = function (data) {
@@ -84,6 +85,7 @@ const blogPostDeleteFailure = function (error) {
 }
 
 const showBlogPosts = function (data) {
+  data.blogPosts.sort(compare)
   if (store.user) {
     if (store.user.id === store.viewed_user.user_id) {
       blogInfoData = blogInfoTemplateWithButtons({ blogPosts: data.blogPosts,

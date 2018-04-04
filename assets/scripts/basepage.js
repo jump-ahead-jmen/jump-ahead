@@ -5,6 +5,7 @@ const orgInfoTemplate = require('./templates/show-base-page.handlebars')
 const showOnePageTemplate = require('./templates/show-one-page.handlebars')
 const showOnePageTemplateWithButtons = require('./templates/show-one-page-with-buttons.handlebars')
 const webpageLinksTemplate = require('./templates/page-links.handlebars')
+const compare = require('./customsorterforposts.js')
 const store = require('./store.js')
 const userApi = require('./users/api.js')
 let webpage
@@ -18,6 +19,7 @@ const viewOrgInfo = function (data) {
 }
 
 const showWebpageLinks = function (data) {
+  data.webpages.sort(compare)
   const webpageLinks = webpageLinksTemplate({ webpages: data.webpages })
   $('#page-links').html(webpageLinks)
   $('.individual-page-link').on('click')

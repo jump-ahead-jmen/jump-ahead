@@ -1,6 +1,6 @@
 const api = require('./api')
 const usersDropdownTemplate = require('../templates/user-dropdown.handlebars')
-const compare = require('../customsorter.js')
+const compare = require('../customsorterfordropdown.js')
 
 const getUserDropdown = function () {
   api.userIndex()
