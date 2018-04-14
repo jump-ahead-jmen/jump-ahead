@@ -7,6 +7,7 @@ const blogPostEvents = require('./blogposts/events.js')
 const userDropdown = require('./users/user-dropdown.js')
 const deleteEvents = require('./delete-events.js')
 const updateEvents = require('./update-events.js')
+const stripeEvents = require('./stripe/events.js')
 
 $(() => {
   userDropdown()
@@ -17,6 +18,7 @@ $(() => {
   updateEvents.addHandlers()
   $('.modal').on('hidden.bs.modal', () => $('form').find('input:not([type="submit"])').val(''))
   $('.modal').on('hidden.bs.modal', () => $('textarea').val(''))
+  stripeEvents.checkout()
 })
 
 // use require with a reference to bundle the file and use it in this file
