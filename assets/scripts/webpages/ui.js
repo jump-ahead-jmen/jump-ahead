@@ -4,6 +4,8 @@ const store = require('../store.js')
 
 const submitHide = function () {
   $('#submit-webpage').hide()
+  $('#stripe-submit').show()
+  $('#status').text('Must First Submit a Purchase Before Creating a Webpage!')
 }
 
 const createWebpageSuccess = function (data) {
