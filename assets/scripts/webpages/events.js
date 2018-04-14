@@ -56,6 +56,7 @@ const onDeleteWebpage = function (event) {
 }
 
 const addHandlers = () => {
+  $('#hide-submit').on('click', ui.submitHide)
   $('#create-webpage').on('submit', onCreateWebpage)
   $('#get-webpages').on('submit', onGetWebpages)
   $('#get-webpage').on('submit', onGetWebpage)
