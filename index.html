@@ -10,6 +10,9 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <!-- TODO replace this with $script in JS file -->
+      <script src="https://checkout.stripe.com/checkout.js"></script>
+
     </head>
 
     <body class="container-fluid">
@@ -135,7 +138,7 @@
                     <form id="create-webpage" class="border">
                       <input type="text" name="webpage[title]" placeholder="title" required>
                       <textarea class="form-control" id="create-webpage-body" name="webpage[body]" placeholder="Body" rows="3" required></textarea>
-                      <button type="submit" class="btn btn-info">Submit</button>
+                      <button id="stripe-submit" type="submit" class="btn btn-info">Submit</button>
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </form>
                   </fieldset>
