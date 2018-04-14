@@ -8,10 +8,10 @@
       <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAABILAAASCwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcgAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPkAAABHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC7AAAAuQAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaQAAAP8AAADuAAAA0wAAAGIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABMAAADYAAAA/wAAAP8AAAD+AAAAsAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA7AAAAFwAAAAAAAACSAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD+AAAA1gAAAJ0AAAB1AAAAfQAAAKMAAADXAAAA+QAAAIAAAAB/AAAAEQAAADwAAADuAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANQAAAByAAAAMQAAAAAAAAAAAAAAOwAAAOsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAADdAAAAawAAAAAAAAAAAAAAAAAAAAAAAAAqAAAA1AAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAALwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAABIAAAAiwAAAKEAAACtAAAAmwAAAMkAAAD/AAAA/wAAAPMAAAA3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAADMAAAA/wAAAKYAAAAhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAC2AAAA/wAAAPEAAAASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqAAAA/wAAAPwAAABoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAFEAAAAVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAD//AAA//wAAH/8AAAP/AAAA8QAAAAAAAAAAAADAAQAA4AEAAPABAAD/gwAA/wcAAP8PAAD/HwAA//8AAA==" rel="icon" type="image/x-icon">
 
       <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
       <!-- TODO replace this with $script in JS file -->
       <script src="https://checkout.stripe.com/checkout.js"></script>
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 
     </head>
 
@@ -41,6 +41,8 @@
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-webpage-modal">
             Create Webpage
           </button>
+
+          <button id="stripe-submit" class="btn btn-primary">Stripe Checkout</button>
 
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#change-password-modal">
             Change Password
@@ -138,7 +140,7 @@
                     <form id="create-webpage" class="border">
                       <input type="text" name="webpage[title]" placeholder="title" required>
                       <textarea class="form-control" id="create-webpage-body" name="webpage[body]" placeholder="Body" rows="3" required></textarea>
-                      <button id="stripe-submit" type="submit" class="btn btn-info">Submit</button>
+                      <button type="submit" class="btn btn-info">Submit</button>
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </form>
                   </fieldset>
