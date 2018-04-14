@@ -36,11 +36,9 @@
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-blogPost-modal">
             Create BlogPost
           </button>
-          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create-webpage-modal">
+          <button id="hide-submit" type="button" class="btn btn-info" data-toggle="modal" data-target="#create-webpage-modal">
             Create Webpage
           </button>
-
-          <button id="stripe-submit" class="btn btn-primary">Stripe Checkout</button>
 
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#change-password-modal">
             Change Password
@@ -138,7 +136,8 @@
                     <form id="create-webpage" class="border">
                       <input type="text" name="webpage[title]" placeholder="title" required>
                       <textarea class="form-control" id="create-webpage-body" name="webpage[body]" placeholder="Body" rows="3" required></textarea>
-                      <button type="submit" class="btn btn-info">Submit</button>
+                      <button id="submit-webpage" type="submit" class="btn btn-info">Submit</button>
+                      <button id="stripe-submit" class="btn btn-primary">Stripe Checkout</button>
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </form>
                   </fieldset>
