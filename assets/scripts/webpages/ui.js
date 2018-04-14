@@ -2,6 +2,10 @@
 
 const store = require('../store.js')
 
+const submitHide = function () {
+  $('#submit-webpage').hide()
+}
+
 const createWebpageSuccess = function (data) {
   $('#create-webpage-modal').modal('hide')
   $('#message').text('Created webpage successfully!')
@@ -91,5 +95,6 @@ module.exports = {
   updateWebpageSuccess,
   updateWebpageFailure,
   deleteWebpageSuccess,
-  deleteWebpageFailure
+  deleteWebpageFailure,
+  submitHide
 }
