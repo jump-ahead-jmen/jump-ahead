@@ -25,6 +25,7 @@ const createWebpageFailure = function (error) {
   $('form').find('input:not([type="submit"])').val('')
   $('#message').delay(3000).slideToggle()
 }
+
 const getWebpagesSuccess = function (data) {
   $('#message').text('Retrieved webpages successfully!')
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
