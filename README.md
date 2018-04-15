@@ -11,13 +11,13 @@ User Stories:\
 As a user, I want to be able to log in and out of my account and edit my own resources.\
 As a user, I want my resources to not be edited by users other than me.\
 As a user, I want to be able to post blogs that others can view.\
-As a user, I want to be able to post webpages that others can view.\
+As a user, I want to be able to post webpages that others can view by paying $19.99 (through using Stripe).\
 As a user, I want to be able to view other companys' blogs and webpages.\
 As a user, I want to be able to chage my password.\
 As a user, I want others to be able to see what organization I'm associated with.\
 \
 Technologies used:\
-HTML, CSS, SASS, JavaScript, AJAX, Bootstrap, Handlebars\
+HTML, CSS, SASS, JavaScript, AJAX, Bootstrap, Handlebars, Stripe\
 \
 Unsolved Problems:\
 There are several improvements yet to be made to this application in future iterations:\
