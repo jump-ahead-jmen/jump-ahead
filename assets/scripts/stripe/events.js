@@ -2,9 +2,8 @@
 /* global StripeCheckout */
 
 const api = require('./api')
+const ui = require('./ui.js')
 
-// const ui = require('./ui.js')
-// const getFormFields = require('../../../lib/get-form-fields')
 // stripe script that adds modal to html and allows for ajax request
 // to get a users token to be stored for their purchase
 // Configures the stripe API to enable token generation and checkout processing
@@ -33,6 +32,7 @@ const checkout = function () {
           console.log('Payment Sent', data)
           return data
         })
+        .then(ui.onPurchaseSucccess)
         .catch((err) => {
           console.error('Error is', err)
         })
