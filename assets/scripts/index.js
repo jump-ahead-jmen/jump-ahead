@@ -7,6 +7,10 @@ const blogPostEvents = require('./blogposts/events.js')
 const userDropdown = require('./users/user-dropdown.js')
 const deleteEvents = require('./delete-events.js')
 const updateEvents = require('./update-events.js')
+const stripeEvents = require('./stripe/events.js')
+const $script = require('scriptjs')
+
+$script('https://checkout.stripe.com/checkout.js', stripeEvents.checkout)
 
 $(() => {
   userDropdown()

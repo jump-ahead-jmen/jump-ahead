@@ -2,6 +2,12 @@
 
 const store = require('../store.js')
 
+const submitHide = function () {
+  $('#submit-webpage').hide()
+  $('#stripe-submit').show()
+  $('#status').text('Must First Submit a Purchase Before Creating a Webpage!')
+}
+
 const createWebpageSuccess = function (data) {
   $('#create-webpage-modal').modal('hide')
   $('#message').text('Created webpage successfully!')
@@ -19,6 +25,7 @@ const createWebpageFailure = function (error) {
   $('form').find('input:not([type="submit"])').val('')
   $('#message').delay(3000).slideToggle()
 }
+
 const getWebpagesSuccess = function (data) {
   $('#message').text('Retrieved webpages successfully!')
   $('#message').removeClass('alert-danger').addClass('alert-success').show()
@@ -91,5 +98,6 @@ module.exports = {
   updateWebpageSuccess,
   updateWebpageFailure,
   deleteWebpageSuccess,
-  deleteWebpageFailure
+  deleteWebpageFailure,
+  submitHide
 }
